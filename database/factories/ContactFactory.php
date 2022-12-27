@@ -18,8 +18,8 @@ class ContactFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'company_id' => fake()->id(),
-            'company_size' => fake()->int(),
+            'company_id' => fake()->integer(),
+            'company_size' => fake()->integer(),
         ];
     }
 }
