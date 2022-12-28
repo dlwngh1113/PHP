@@ -5,4 +5,6 @@
             <tr><td>{{ $user->name }}</td></tr>
         @endforeach
 </table>
+
+{{ $users->links() }}
     </html>
