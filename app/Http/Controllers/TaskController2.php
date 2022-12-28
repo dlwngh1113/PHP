@@ -13,7 +13,6 @@ class TaskController2 extends Controller
      */
     public function index()
     {
-        return 'Hello World!';
     }
 
     /**
@@ -45,7 +44,6 @@ class TaskController2 extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
