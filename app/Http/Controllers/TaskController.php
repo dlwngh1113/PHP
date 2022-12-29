@@ -9,6 +9,6 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('user.index', ['users' => DB::table('users')->paginate(20)]);
+        return view('user.index', ['users' => DB::table('users')->paginate(15)]);
     }
 }
