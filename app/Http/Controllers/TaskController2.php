@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController2 extends Controller
 {
@@ -13,6 +14,7 @@ class TaskController2 extends Controller
      */
     public function index()
     {
+        return view('roomEscape.index', ['themes' => DB::table('room_escapes')->paginate(10)]);
     }
 
     /**
@@ -22,7 +24,6 @@ class TaskController2 extends Controller
      */
     public function create()
     {
-        return 'Create()';
     }
 
     /**
