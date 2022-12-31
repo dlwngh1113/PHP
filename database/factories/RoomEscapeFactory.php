@@ -17,10 +17,10 @@ class RoomEscapeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'description' => Str::random(30),
-            'playable_user_cnt' => fake()->integer(),
-            'play_time' => fake()->integer(),
+            'name' => fake()->sentence(),
+            'description' => fake()->text(),
+            'playable_user_cnt' => rand(2,6),
+            'play_time' => rand(45, 60),
         ];
     }
 }
