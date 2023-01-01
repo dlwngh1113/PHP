@@ -11,7 +11,7 @@
                 <th> play_time </th>
             </tr>
             @foreach ($themes as $theme)
-            <tr><td> <a href="/"> {{ $theme->name }} </a> </td> <td> {{ $theme->playable_user_cnt }} </td> <td> {{ $theme->play_time }} min </td></tr>
+            <tr><td> <a href="./@name"> {{ $theme->name }} </a> </td> <td> {{ $theme->playable_user_cnt }} </td> <td> {{ $theme->play_time }} min </td></tr>
             @endforeach
         </table>
     </body>

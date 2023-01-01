@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\RoomEscape;
 
 class TaskController2 extends Controller
 {
@@ -45,6 +46,7 @@ class TaskController2 extends Controller
      */
     public function show($id)
     {
+        return view('roomEscape.theme')->with('theme', RoomEscape::findOrFail($id));
     }
 
     /**
