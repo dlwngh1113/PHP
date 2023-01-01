@@ -35,7 +35,7 @@ class TaskController2 extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('roomEscape.theme')->with('theme', RoomEscape::findOrFail(3));
     }
 
     /**
@@ -46,7 +46,6 @@ class TaskController2 extends Controller
      */
     public function show($id)
     {
-        return view('roomEscape.theme')->with('theme', RoomEscape::findOrFail($id));
     }
 
     /**
