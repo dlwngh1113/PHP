@@ -15,7 +15,7 @@
             <form method="post" action="/roomEscape">
                 @csrf
                 <tr>
-                    <td> <input type="submit" name="id" value={{ $theme->id }}> </td> 
+                    <td> <input type="submit" name="id" value={{ $theme->id }}> </td>
                     <td> {{ $theme->name }} </td>
                     <td> {{ $theme->playable_user_cnt }} </td>
                     <td> {{ $theme->play_time }} min </td>
@@ -23,5 +23,7 @@
               </form>
             @endforeach
         </table>
+
+        {{ $themes->links() }}
     </body>
 </html>
