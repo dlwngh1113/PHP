@@ -4,6 +4,7 @@
     <style>
         div.row{
             width:100%;
+            display: flex;
         }
         div.left_column{
             width:70%;
@@ -15,9 +16,15 @@
             float: right;
             border:1ch;
         }
+        div.banner{
+            width:100%;
+        }
     </style>
     </head>
     <body>
+        <div id="banner" class="banner">
+            <p style="text-align: center; font-weight: bold; font-size: 200%">This is banner</p>
+        </div>
         <div id="container" role="main">
             <div id="contents" class="left_column">
                 <table cellpadding='5' style="align-content: center; border: 1ch">
@@ -43,11 +50,7 @@
                 <div class="row"> {{ $themes->links() }}</div>
             </div>
             <div id="login" class="right_column">
-                <form method="POST" action="/roomEscape">
-                <input type="text" value="id">
-                <input type="password" value="password">
-                <button type="submit"> Login</button>
-                </form>
+                <a href="/user">Login</a>
             </div>
         </div>
 
