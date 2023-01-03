@@ -35,7 +35,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = $request->ID;
+        $password = $request->password;
+
+        return $password;
     }
 
     /**

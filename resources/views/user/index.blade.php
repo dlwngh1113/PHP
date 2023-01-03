@@ -3,7 +3,7 @@
     <head>
         <style>
             div.main{
-                width:50%;
+                width:100%;
                 text-align: center;
                 align-content: center;
             }
@@ -18,10 +18,11 @@
     <body>
         <div class="banner"> This is Banner</div>
         <div class="main">
-            <form method="POST" action="/user">
-                <input type="text" id="ID" aria-valuetext="ID">
-                <input type="password" id="password" aria-valuetext="password">
-                <button type="submit">Login</button>
+            <form method="post" action="/user">
+                @csrf
+                <input type="text" id="id">
+                <input type="password" id="password">
+                <input type="submit" name="Login" value="Login">
             </form>
         </div>
     </body>
