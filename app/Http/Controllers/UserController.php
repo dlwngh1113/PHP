@@ -40,13 +40,13 @@ class UserController extends Controller
         ->where('password', $request->password)
         ->get();
 
-        if (empty($user))
+        if ($user->count() > 0)
         {
-            return "User is null";
+            return $request->id;
         }
         else
         {
-            return $request->id;
+            return 'user is null';
         }
     }
 
