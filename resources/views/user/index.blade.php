@@ -20,8 +20,8 @@
         <div class="main">
             <form method="post" action="/user">
                 @csrf
-                <input type="text" id="id">
-                <input type="password" id="password">
+                <input type="text" name="id">
+                <input type="password" name="password">
                 <input type="submit" name="Login" value="Login">
             </form>
         </div>
