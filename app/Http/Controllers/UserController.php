@@ -35,7 +35,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $user = DB::table('users')->select()
+        ->where('name', $request->id)
+        ->where('password', $request->password)
+        ->get();
+
+        if (empty($user))
+        {
+            return "User is null";
+        }
+        else
+        {
+            return $request->id;
+        }
     }
 
     /**
