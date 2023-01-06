@@ -50,7 +50,6 @@ class UserController extends Controller
                 'id' => $request->id,
                 'password' => $request->password,
                 'privilege' => 0,
-                'last_login_time' => now()
             ]);
 
             return redirect()->back();

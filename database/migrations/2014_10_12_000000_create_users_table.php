@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->string('id')->unique();
             $table->string('password');
-            $table->integer('privilege');   
-            $table->timestamp('last_login_time');
+            $table->integer('privilege')->default(0);
             $table->timestamps();
         });
     }

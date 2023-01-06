@@ -21,7 +21,6 @@ class UserFactory extends Factory
             'id' => Str::random(10),
             'password' => fake()->password(),
             'privilege' => 0,
-            'last_login_time' => now(),
         ];
     }
 
