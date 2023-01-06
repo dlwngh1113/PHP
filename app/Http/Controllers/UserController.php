@@ -36,17 +36,24 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = DB::table('users')->select()
-        ->where('name', $request->id)
+        ->where('id', $request->id)
         ->where('password', $request->password)
         ->get();
 
         if ($user->count() > 0)
         {
-            return $request->id;
+            return 'login successfully!';
         }
         else
         {
-            return 'user is null';
+            DB::table('users')->insert([
+                'id' => $request->id,
+                'password' => $request->password,
+                'privilege' => 0,
+                'last_login_time' => now()
+            ]);
+
+            return redirect()->back();
         }
     }
 
