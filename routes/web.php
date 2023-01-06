@@ -8,7 +8,7 @@ Route::get('/', function() {
     return redirect('roomEscape');
 });
 
-Route::middleware(['auth'])->group(function () {
+//Route::middleware(['auth'])->group(function () {
     Route::resource('roomEscape', TaskController2::class);
     Route::resource('user', UserController::class);
-});
+//});
