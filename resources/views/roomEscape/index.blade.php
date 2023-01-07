@@ -45,7 +45,7 @@
                 
                 
                 <div class="right_column">
-                    <a href="/user/register">Register</a>
+                    <a href="/user/create">Register</a>
                     <a href="/user">Login</a>
                 </div>
             @endsection
