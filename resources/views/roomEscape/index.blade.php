@@ -43,10 +43,9 @@
                     {{ $themes->links() }}
                 </div>
                 
-                
                 <div class="right_column">
-                    <a href="/user/create">Register</a>
-                    <a href="/user">Login</a>
+                    <button onclick="location.href=' {{ route('user.create') }} '">Register</button>
+                    <button onclick="location.href=' {{ route('user.') }} '">Login</button>
                 </div>
             @endsection
 

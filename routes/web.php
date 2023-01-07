@@ -10,5 +10,8 @@ Route::get('/', function() {
 
 //Route::middleware(['auth'])->group(function () {
     Route::resource('roomEscape', TaskController2::class);
-    Route::resource('user', UserController::class);
+    Route::prefix('user')->name('user.')->group(function(){
+        Route::get('/', [UserController::class, 'index']);
+        Route::get('/create',[UserController::class, 'create'])->name('create');
+    });
 //});
