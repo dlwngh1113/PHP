@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <app class="css"></app>
+        <style>
+            div.top_banner{
+                width: 100%;
+                background-color: #9ad442;
+                color: white;
+            }
+            div.main{
+                width: 100%;
+                align-content: center;
+                text-align: center;
+            }
+            div.bottom_banner{
+                width: 100%;
+            }
+        </style>
     </head>
 
     <body>

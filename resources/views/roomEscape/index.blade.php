@@ -42,8 +42,10 @@
                     
                     {{ $themes->links() }}
                 </div>
-
-                <div id="login" class="right_column">
+                
+                
+                <div class="right_column">
+                    <a href="/user/register">Register</a>
                     <a href="/user">Login</a>
                 </div>
             @endsection
