@@ -45,7 +45,7 @@
                 
                 <div class="right_column">
                     <button onclick="location.href=' {{ route('user.create') }} '">Register</button>
-                    <button onclick="location.href=' {{ route('user.') }} '">Login</button>
+                    <button onclick="location.href=' {{ route('user.login') }} '">Login</button>
                 </div>
             @endsection
 

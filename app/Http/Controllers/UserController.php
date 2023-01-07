@@ -46,7 +46,7 @@ class UserController extends Controller
         }
         else
         {
-            return redirect('/user/create');
+            return redirect('user/create');
         }
     }
 

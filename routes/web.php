@@ -11,7 +11,8 @@ Route::get('/', function() {
 //Route::middleware(['auth'])->group(function () {
     Route::resource('roomEscape', TaskController2::class);
     Route::prefix('user')->name('user.')->group(function(){
-        Route::get('/', [UserController::class, 'index']);
+        Route::get('/', [UserController::class, 'index'])->name('login');
+        Route::post('/', [UserController::class, 'store']);
         Route::get('/create',[UserController::class, 'create'])->name('create');
     });
 //});
