@@ -42,17 +42,11 @@ class UserController extends Controller
 
         if ($user->count() > 0)
         {
-            return 'login successfully!';
+            return redirect('roomEscape');
         }
         else
         {
-            DB::table('users')->insert([
-                'id' => $request->id,
-                'password' => $request->password,
-                'privilege' => 0,
-            ]);
-
-            return redirect()->back();
+            return redirect('/user/create');
         }
     }
 
