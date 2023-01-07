@@ -1,13 +1,11 @@
 div.top_banner{
     width: 100%;
+    background-color: #9ad442;
     color: white;
-    background-color: green;
 }
 div.main{
     width: 100%;
-    background-color: white;
 }
 div.bottom_banner{
     width: 100%;
-    background-color: green;
 }

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @section('style')
-        {{ asset('app.css') }}
-        @endsection
+        <app class="css"></app>
     </head>
 
     <body>
-        <div class="top_banner">
+        <div class="top_banner" role="banner">
             @yield('top_banner')
         </div>
 
