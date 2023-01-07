@@ -1,18 +1,13 @@
-div.banner{
+div.top_banner{
     width: 100%;
-    color: green;
+    color: white;
+    background-color: green;
 }
 div.main{
     width: 100%;
-    color:azure;
+    background-color: white;
 }
-div.left_column{
-    width:70%;
-    float: left;
-    border: 1ch;
-}
-div.right_column{
-    width:30%;
-    float: right;
-    border:1ch;
+div.bottom_banner{
+    width: 100%;
+    background-color: green;
 }
