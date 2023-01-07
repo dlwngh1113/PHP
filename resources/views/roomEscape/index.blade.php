@@ -16,7 +16,7 @@
     </head>
     <body>
             @section('top_banner')
-                <p style="text-align: center; font-weight: bold; font-size: 200%">This is Main banner</p>
+                <p>This is Main banner</p>
             @endsection
             @section('main')
                 <div id="contents" class="left_column">

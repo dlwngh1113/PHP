@@ -6,6 +6,9 @@
                 width: 100%;
                 background-color: #9ad442;
                 color: white;
+                font-size: 300%;
+                text-align: center;
+                align-content: center;
             }
             div.main{
                 width: 100%;
