@@ -3,10 +3,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            div.left_column{
+                width: 70%;
+                float: left;
+            }
+            div.right_column{
+                width: 30%;
+                float: right;
+            }
+        </style>
     </head>
     <body>
-            @section('banner')
-                <p style="text-align: center; font-weight: bold; font-size: 200%">This is banner</p>
+            @section('top_banner')
+                <p style="text-align: center; font-weight: bold; font-size: 200%">This is Main banner</p>
             @endsection
             @section('main')
                 <div id="contents" class="left_column">
@@ -29,12 +39,16 @@
                         </form>
                         @endforeach
                     </table>
-
+                    
                     {{ $themes->links() }}
                 </div>
+
                 <div id="login" class="right_column">
                     <a href="/user">Login</a>
                 </div>
+            @endsection
+
+            @section('bottom_banner')
             @endsection
     </body>
 </html>
