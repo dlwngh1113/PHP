@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\RoomEscape;
 
-class TaskController2 extends Controller
+class RoomEscapeController extends Controller
 {
     /**
      * Display a listing of the resource.

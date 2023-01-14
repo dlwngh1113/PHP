@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController2;
+use App\Http\Controllers\RoomEscapeController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function() {
@@ -9,7 +9,7 @@ Route::get('/', function() {
 });
 
 //Route::middleware(['auth'])->group(function () {
-    Route::resource('roomEscape', TaskController2::class);
+    Route::resource('roomEscape', RoomEscapeController::class);
     Route::prefix('user')->name('user.')->group(function(){
         Route::get('/', [UserController::class, 'index'])->name('login');
         Route::post('/', [UserController::class, 'store']);
