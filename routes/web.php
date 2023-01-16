@@ -12,7 +12,7 @@ Route::get('/', function() {
     Route::resource('roomEscape', RoomEscapeController::class);
     Route::prefix('user')->name('user.')->group(function(){
         Route::get('/', [UserController::class, 'index'])->name('login');
-        Route::post('/', [UserController::class, 'store']);
+        Route::post('/', [UserController::class, 'authenticate']);
         Route::get('/create',[UserController::class, 'create'])->name('create');
     });
 //});
