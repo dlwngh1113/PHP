@@ -1,3 +1,4 @@
+@include('partails.errors')
 @extends('layouts.master')
 
 <!DOCTYPE html>
