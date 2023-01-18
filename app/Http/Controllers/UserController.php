@@ -36,7 +36,7 @@ class UserController extends Controller
             'password' => $request->input('password'),
         ];
 
-        if(auth()->attempt($credentials))
+        if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
 
