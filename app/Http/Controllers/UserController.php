@@ -36,11 +36,11 @@ class UserController extends Controller
             'password' => $request->input('password'),
         ];
 
-        if(Auth::attempt($credentials))
+        if(auth()->attempt($credentials))
         {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect()->intended('/');
         }
 
         $messageBag = new MessageBag();

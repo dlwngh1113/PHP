@@ -16,6 +16,7 @@ Route::get('/', function() {
         Route::get('/create',[UserController::class, 'create'])->name('create');
     });
 //});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -24,4 +25,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::post('/login', [UserController::class, 'authenticate'])
+    ->name('login');
 });
