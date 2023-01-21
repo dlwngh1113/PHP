@@ -5,8 +5,8 @@ use App\Http\Controllers\RoomEscapeController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function() {
-    return redirect('roomEscape');
-});
+    return view('dashboard');
+})->name('verification.notice');
 
 //Route::middleware(['auth'])->group(function () {
     Route::resource('roomEscape', RoomEscapeController::class);
@@ -25,6 +25,4 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::post('/login', [UserController::class, 'authenticate'])
-    ->name('login');
 });

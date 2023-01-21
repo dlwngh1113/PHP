@@ -40,7 +40,7 @@ class UserController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         $messageBag = new MessageBag();
