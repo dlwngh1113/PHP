@@ -8,14 +8,12 @@ Route::get('/', function() {
     return view('dashboard');
 })->name('verification.notice');
 
-//Route::middleware(['auth'])->group(function () {
-    Route::resource('roomEscape', RoomEscapeController::class);
-    Route::prefix('user')->name('user.')->group(function(){
-        Route::get('/', [UserController::class, 'index'])->name('login');
-        Route::post('/', [UserController::class, 'authenticate']);
-        Route::get('/create',[UserController::class, 'create'])->name('create');
-    });
-//});
+Route::resource('roomEscape', RoomEscapeController::class);
+Route::prefix('user')->name('user.')->group(function(){
+    Route::get('/', [UserController::class, 'index'])->name('login');
+    Route::post('/', [UserController::class, 'authenticate']);
+    Route::get('/create',[UserController::class, 'create'])->name('create');
+});
 
 Route::middleware([
     'auth:sanctum',
