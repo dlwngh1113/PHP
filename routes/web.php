@@ -4,24 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomEscapeController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function(){
-    return redirect('roomEscape');
-})->name('verification.notice');
-
-Route::resource('roomEscape', RoomEscapeController::class);
-Route::prefix('user')->name('user.')->group(function(){
-    Route::get('/', function(){
-        return view('dashboard');
-    })->name('login');
-    Route::post('/', [UserController::class, 'authenticate']);
-    Route::get('/create',[UserController::class, 'create'])->name('create');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::get('/login', function(){
+    return view('auth.login');
+})->name('login');
+
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

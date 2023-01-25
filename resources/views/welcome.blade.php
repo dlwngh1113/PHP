@@ -1,9 +1,20 @@
+@extends('layouts.master')
+
 <!DOCTYPE html>
 <html>
     <head>
 </head>
 <body>
-    <button>hello World</button>
-    <div>Hello <strong>World!</strong></div>
+    @section('top_banner')
+        <p>This is Header</p>
+    @endsection
+
+    @section('main')
+        <a href="{{ route('login') }}">Login</a>
+    @endsection
+
+    @section('bottom_banner')
+
+    @endsection
 </body>
 </html>
