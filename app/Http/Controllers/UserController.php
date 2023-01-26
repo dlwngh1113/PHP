@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -27,26 +25,6 @@ class UserController extends Controller
     public function create()
     {
         return view('user.create');
-    }
-
-    public function authenticate(Request $request)
-    {
-        $credentials = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-        ];
-
-        if(auth()->attempt($credentials))
-        {
-            $request->session()->regenerate();
-
-            return redirect()->intended('/dashboard');
-        }
-
-        $messageBag = new MessageBag();
-        $messageBag->add('email', 'The provided credentials do not match our records');
-
-        return redirect()->back()->withErrors($messageBag);
     }
 
     /**

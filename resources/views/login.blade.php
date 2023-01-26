@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if ($message = Sesson::get('succeess'))
+@if ($message = Session::get('succeess'))
     <div class="alert alert-info">
         {{ $message }}
     </div>

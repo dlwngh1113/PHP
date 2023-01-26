@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{ route('validate_register') }}" method="POST">
+<form action="{{ route('register') }}" method="POST">
     @csrf
     <input type="text" name="name" >
         @if ($errors->has('name'))
