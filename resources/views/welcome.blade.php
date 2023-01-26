@@ -1,20 +1,26 @@
-@extends('layouts.master')
-
 <!DOCTYPE html>
 <html>
     <head>
-</head>
-<body>
-    @section('top_banner')
-        <p>This is Header</p>
-    @endsection
+    </head>
+    <body>
+        <ul class="navbar-nav">
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-item" href="{{ route('logout') }}">Logout</a>
+            </li>
+        @endguest
+        </ul>
 
-    @section('main')
-        <a href="{{ route('login') }}">Login</a>
-    @endsection
-
-    @section('bottom_banner')
-
-    @endsection
+    <div class="container mt-5">
+        @yield('content')
+    </div>
 </body>
+
 </html>
