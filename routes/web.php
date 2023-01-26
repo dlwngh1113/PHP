@@ -11,4 +11,5 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('login', 'index')->name('login');
     Route::get('register', 'register')->name('register');
     Route::get('logout', 'logout')->name('logout');
+    Route::post('validate_register', 'validate_register')->name('validate_register');
 });
