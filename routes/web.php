@@ -1,19 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoomEscapeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function(){
-    return view('auth.login');
-})->name('login');
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::controller(LoginController::class)->group(function(){
+    Route::get('login', 'index')->name('login');
+    Route::get('register', 'register')->name('register');
+    Route::get('logout', 'logout')->name('logout');
+    Route::post('register', 'validate_register')->name('validate_register');
+    Route::post('login', 'validate_login')->name('validate_login');
+    Route::get('dashboard', 'dashboard')->name('dashboard');
 });
