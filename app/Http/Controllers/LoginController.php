@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     //
 
-    function index()
+    function login()
     {
         return view('login');
     }
@@ -38,24 +38,29 @@ class LoginController extends Controller
             'password' => Hash::make($data['password'])
         ]);
 
-        return redirect('login')->with('success', 'Registeration Completed, now you can login');
+        return redirect()->route('login')->with('success', 'Registeration Completed, now you can login');
     }
 
     function validate_login(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
         ]);
 
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials))
         {
-            return redirect('dashboard');
+            return redirect()->route('home');
         }
 
-        return redirect('login')->with('success', 'Login details are not validated');
+        return redirect()->route('login')>with('success', 'Login details are not validated');
+    }
+
+    function reset_password(Request $request)
+    {
+
     }
 
     function dashboard()
@@ -65,7 +70,7 @@ class LoginController extends Controller
             return view('dashboard');
         }
 
-        return redirect('login')->with('success', 'you are not allowed to access');
+        return redirect()->route('login')->with('success', 'you are not allowed to access');
     }
 
     function logout()
@@ -74,6 +79,6 @@ class LoginController extends Controller
 
         Auth::logout();
 
-        return redirect('login');
+        return redirect()->route('home');
     }
 }

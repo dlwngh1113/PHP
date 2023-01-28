@@ -22,7 +22,20 @@
     float: left;
     width: 30%;
 }
+.container-login{
+    float:left;
+    width: 100%;
+    min-height: 300px;
+    display: grid;
+    place-items: center;
+}
 
+.alert-info{
+    outline-width: 1px;
+    outline-color: aquamarine;
+    background-color: #c4db66;
+    color: whitesmoke;
+}
 .banner-label{
     float: left;
     padding: 10px;

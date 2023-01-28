@@ -3,13 +3,13 @@
 @section('content')
 
 @if ($message = Session::get('success'))
-    <div class="alert alert-info">
+    <div class="alert-info">
         {{ $message }}
     </div>
 @endif
 
-<div>
-    <form action="{{ route('validate_login') }}" method="POST">
+<div class="container-login">
+    <form method="POST" action="{{ route('validate_login') }}">
         @csrf
         <div>
             <input type="text" name="email" placeholder="Email">
@@ -24,6 +24,7 @@
             @endif
         </div>
         <div>
+            <a href="{{ route('reset_password') }}">forgot your password?</a>
             <button type="submit">Login</button>
         </div>
     </form>
