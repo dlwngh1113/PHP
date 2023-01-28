@@ -29,6 +29,9 @@
     display: grid;
     place-items: center;
 }
+.input-control{
+    font-size: 140%;
+}
 
 .alert-info{
     outline-width: 1px;
