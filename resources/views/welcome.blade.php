@@ -3,7 +3,25 @@
 @section('content')
 
 <div class="container-lb">
+    <ul class="banner-label">
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab4</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab5</a>
+        </li>
+    </ul>
 </div>
+
 <div class="container-rb">
     <ul class="navbar-nav">
         @guest
@@ -20,4 +38,5 @@
         @endguest
     </ul>
 </div>
+
 @endsection
