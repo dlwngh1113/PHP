@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::controller(LoginController::class)->group(function(){
     Route::get('login', 'index')->name('login');

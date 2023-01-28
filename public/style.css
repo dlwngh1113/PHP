@@ -2,10 +2,23 @@ div.header{
     width: 100%;
     background-color: #c4db66;
     color: whitesmoke;
+    float: left;
+    text-align: center;
+    font-size: 200%;
+    color: black;
 }
 div.footer{
     width:  100%;
     background-color: #c4db66;
+}
+div.container{
+    float: left;
+}
+div.container-lb{
+    width: 70%;
+}
+div.container-rb{
+    width: 30%;
 }
 
 ul li { float: left; margin-left: 20px;}
