@@ -1,0 +1,17 @@
+div.header{
+    width: 100%;
+    background-color: #c4db66;
+    color: whitesmoke;
+}
+div.footer{
+    width:  100%;
+    background-color: #c4db66;
+}
+
+ul li { float: left; margin-left: 20px;}
+ul.navbar-nav{
+    color: #c4db66;
+}
+li.nav-item{
+    color: whitesmoke;
+}
