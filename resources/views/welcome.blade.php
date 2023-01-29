@@ -1,9 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <ul class="navbar-nav">
+@extends('layouts.master')
+
+@section('content')
+
+<div class="container-lb">
+    <ul class="banner-label">
+        <li class="nav-item">
+            <a class="nav-link" href="#">자유게시판</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab4</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">tab5</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container-rb">
+    <ul class="navbar-nav">
         @guest
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -13,14 +33,10 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-item" href="{{ route('logout') }}">Logout</a>
+                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
             </li>
         @endguest
-        </ul>
+    </ul>
+</div>
 
-    <div class="container mt-5">
-        @yield('content')
-    </div>
-</body>
-
-</html>
+@endsection

@@ -1,30 +1,35 @@
-@extends('welcome')
+@extends('layouts.master')
 
 @section('content')
 
+<div style="padding: 5%"></div>
+
 @if ($message = Session::get('success'))
-    <div class="alert alert-info">
-        {{ $message }}
+    <div class="alert-info">
+        <p class="text-danger">{{ $message }}</p>
     </div>
 @endif
 
-<div>
-    <form action="{{ route('validate_login') }}" method="POST">
+<div class="container-login">
+    <form method="POST" action="{{ route('validate_login') }}">
         @csrf
         <div>
-            <input type="text" name="email" placeholder="Email">
+            <p class="input-control" style="text-align: left">Email</p>
+            <input class="input-control" type="text" name="email">
             @if ($errors->has('email'))
-                <span class="text-danger">{{ $errors->first('email') }}</span>
+                <p class="text-danger">{{ $errors->first('email') }}</p>
             @endif
         </div>
         <div>
-            <input type="password" name="password" placeholder="Password">
+            <p class="input-control" style="text-align: left">Password</p>
+            <input class="input-control" type="password" name="password">
             @if ($errors->has('password'))
-                <span class="text-danger">{{ $errors->first('password') }}</span>
+                <p class="text-danger">{{ $errors->first('password') }}</p>
             @endif
         </div>
-        <div>
-            <button type="submit">Login</button>
+        <div style="text-align: right; padding-top: 20px;">
+            <a href="{{ route('reset_password') }}">forgot your password?</a>
+            <button class="input-control" type="submit">Login</button>
         </div>
     </form>
 </div>

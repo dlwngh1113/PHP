@@ -1,0 +1,66 @@
+.header{
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 200%;
+    font-weight: 700;
+    color: black;
+}
+.footer{
+    width:  100%;
+    background-color: #c4db66;
+}
+.container{
+    float: left;
+    align-content: center;
+}
+.container-lb{
+    float: left;
+    width: 70%;
+}
+.container-rb{
+    float: left;
+    width: 30%;
+}
+.container-login{
+    float:left;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.input-control{
+    font-size: 140%;
+}
+
+.alert-info{
+    outline-width: 1px;
+    outline-color: aquamarine;
+    background-color: #c4db66;
+    color: whitesmoke;
+    text-align: center;
+}
+.text-danger{
+    color:red;
+    font-size: large;
+}
+
+.banner-label{
+    float: left;
+    padding: 10px;
+    text-align: center;
+    align-content: center;
+    color: black;
+    background-color: aqua;
+}
+
+ul li { float: left; margin-left: 20px; list-style: none;}
+.navbar-nav{
+    color: #c4db66;
+}
+.nav-item{
+
+}
+.nav-link{
+    color: black;
+    text-decoration: none;
+}
