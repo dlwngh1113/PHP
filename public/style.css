@@ -25,7 +25,6 @@
 .container-login{
     float:left;
     width: 100%;
-    min-height: 300px;
     display: grid;
     place-items: center;
 }
@@ -38,7 +37,13 @@
     outline-color: aquamarine;
     background-color: #c4db66;
     color: whitesmoke;
+    text-align: center;
 }
+.text-danger{
+    color:red;
+    font-size: large;
+}
+
 .banner-label{
     float: left;
     padding: 10px;

@@ -55,7 +55,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->route('login')>with('success', 'Login details are not validated');
+        return redirect()->route('login')->with('success', 'Login details are not validated');
     }
 
     function reset_password(Request $request)
