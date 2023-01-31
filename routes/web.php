@@ -12,6 +12,8 @@ Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(func
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
 });
 
+
+
 Route::controller(LoginController::class)->group(function(){
     Route::get('login', 'login')->name('login');
     Route::get('register', 'register')->name('register');
