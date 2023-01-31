@@ -9,7 +9,7 @@
         <th>created_at</th>
         @foreach ($posts as $post)
             <tr>
-                <td>{{ $post->name }}</td>
+                <td><a href="{{ route('freeboard.post', ['post' => $post->user_id]) }}">{{ $post->name }}</a></td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->created_at }}</td>
             </tr>

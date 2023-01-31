@@ -17,4 +17,9 @@ class FreeBoardController extends Controller
 
         return view('freeboard.index', ['posts' => $posts]);
     }
+
+    function view_post($id)
+    {
+        return view('freeboard.post', ['post_info', DB::table('free_board_posts')->where('id', $id)->get()]);
+    }
 }

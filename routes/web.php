@@ -10,9 +10,8 @@ Route::get('/', function () {
 
 Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
+    Route::get('/{post}', [FreeBoardController::class, 'view_post'])->name('post');
 });
-
-
 
 Route::controller(LoginController::class)->group(function(){
     Route::get('login', 'login')->name('login');
