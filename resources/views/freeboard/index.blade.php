@@ -2,14 +2,21 @@
 
 @section('content')
 
-<ul>
-@foreach ($posts as $post)
-    <li>
-        <p>{{ $post->user_id }} {{ $post->title }} {{ $post->created_at }}</p>
-    </li>
-@endforeach
-</ul>
+<div class="container-lb">
+    <table class="container-table">
+        <th>user_id</th>
+        <th>title</th>
+        <th>created_at</th>
+        @foreach ($posts as $post)
+            <tr>
+                <td>{{ $post->user_id }}</td>
+                <td>{{ $post->title }}</td>
+                <td>{{ $post->created_at }}</td>
+            </tr>
+        @endforeach
+    </table>
 
-{{ $posts->links() }}
+    {{ $posts->links() }}
+</div>
 
 @endsection

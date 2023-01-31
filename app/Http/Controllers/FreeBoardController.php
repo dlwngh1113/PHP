@@ -10,6 +10,6 @@ class FreeBoardController extends Controller
     //
     function index()
     {
-        return view('freeboard.index', ['posts' => DB::table('free_board_posts')->paginate()]);
+        return view('freeboard.index', ['posts' => DB::table('free_board_posts')->paginate(10)]);
     }
 }
