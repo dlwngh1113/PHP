@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
+    Route::get('/', [FreeBoardController::class, 'index'])->name('index');
+});
+
 Route::controller(LoginController::class)->group(function(){
     Route::get('login', 'login')->name('login');
     Route::get('register', 'register')->name('register');
@@ -16,12 +20,4 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('login', 'validate_login')->name('validate_login');
     Route::get('dashboard', 'dashboard')->name('dashboard');
     Route::get('reset_password', 'reset_password')->name('reset_password');
-});
-
-Route::middleware(['auth'])->group(function () {
-
-    Route::controller(FreeBoardController::class)->name('freeboard.')->prefix('freeboard')->group(function () {
-        Route::get('/', 'index')->name('index');
-    });
-
 });
