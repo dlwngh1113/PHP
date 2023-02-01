@@ -2,6 +2,8 @@
 
 @section('content')
 
-<p>This is PostView</p>
+<p>{{ $post->title }}</p>
+
+<p>{{ $post->content }}</p>
 
 @endsection
