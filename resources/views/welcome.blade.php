@@ -20,6 +20,7 @@
             <a class="nav-link" href="#">tab5</a>
         </li>
     </ul>
+    @yield('main')
 </div>
 
 <div class="container-rb">

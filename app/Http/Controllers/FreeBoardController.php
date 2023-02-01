@@ -22,6 +22,6 @@ class FreeBoardController extends Controller
     {
         $post = DB::table('free_board_posts')->where('id', $id)->get();
 
-        return view('freeboard.post', ['post' => $post]);
+        return view('freeboard.post', ['post' => $post, 'id' => $id]);
     }
 }
