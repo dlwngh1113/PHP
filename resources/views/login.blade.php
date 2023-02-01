@@ -16,16 +16,16 @@
         <div>
             <p class="input-control" style="text-align: left">Email</p>
             <input class="input-control" type="text" name="email">
-            @if ($errors->has('email'))
+            @error('email')
                 <p class="text-danger">{{ $errors->first('email') }}</p>
-            @endif
+            @enderror
         </div>
         <div>
             <p class="input-control" style="text-align: left">Password</p>
             <input class="input-control" type="password" name="password">
-            @if ($errors->has('password'))
+            @error('password')
                 <p class="text-danger">{{ $errors->first('password') }}</p>
-            @endif
+            @enderror
         </div>
         <div style="text-align: right; padding-top: 20px;">
             <a href="{{ route('reset_password') }}">forgot your password?</a>

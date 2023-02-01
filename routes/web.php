@@ -2,10 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FreeBoardController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
+    Route::get('/', [FreeBoardController::class, 'index'])->name('index');
+    Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
+});
 
 Route::controller(LoginController::class)->group(function(){
     Route::get('login', 'login')->name('login');
