@@ -11,6 +11,7 @@ Route::get('/', function () {
 Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
     Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
+    Route::get('/store', [FreeBoardController::class, 'store'])->name('store');
 });
 
 Route::prefix('profile')->name('profile.')->middleware(['auth'])->group(function(){

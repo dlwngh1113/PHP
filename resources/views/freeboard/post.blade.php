@@ -1,7 +1,5 @@
 @extends('welcome')
 
 @section('content')
-
-<p>This is PostView</p>
-
+    <p>{{ $post->title }}</p>
 @endsection
