@@ -13,6 +13,7 @@ class FreeBoardController extends Controller
         $posts = DB::table('free_board_posts')
                 ->join('users', 'user_id', '=', 'users.id')
                 ->select('users.name', 'free_board_posts.*')
+                ->orderBy('created_at', 'desc')
                 ->paginate(10);
 
         return view('freeboard.index', ['posts' => $posts]);
@@ -22,11 +23,10 @@ class FreeBoardController extends Controller
     {
         $post = DB::table('free_board_posts')->find($id);
 
-        return view('freeboard.post', ['post' => $post, 'id' => $id]);
+        return view('freeboard.post', ['post' => $post]);
     }
 
-    function store(Request $request)
+    function store()
     {
-
     }
 }
