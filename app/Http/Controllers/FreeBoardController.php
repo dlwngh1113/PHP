@@ -24,4 +24,9 @@ class FreeBoardController extends Controller
 
         return view('freeboard.post', ['post' => $post, 'id' => $id]);
     }
+
+    function store(Request $request)
+    {
+
+    }
 }

@@ -17,4 +17,6 @@
 
 {{ $posts->links() }}
 
+<button><a href="{{ route('freeboard.store') }}"></a></button>
+
 @endsection

@@ -1,5 +1,5 @@
 @extends('welcome')
 
-@section('main')
-    <p>{{ $id }}</p>
+@section('content')
+    <p>{{ $post->title }}</p>
 @endsection
