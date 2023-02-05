@@ -3,12 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FreeBoardController;
+use App\Http\Controllers\VerificationController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
+Route::prefix('verification')->name('verification.')->middleware(['auth'])->group(function() {
+    Route::get('/notice', [VerificationController::class, 'notice'])->name('notice');
+    Route::post('/notice', [VerificationController::class, 'verify_email'])->name('email');
+});
+
+Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
     Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
     Route::get('/store', [FreeBoardController::class, 'store'])->name('store');
