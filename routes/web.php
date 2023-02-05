@@ -15,7 +15,6 @@ Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(func
 });
 
 Route::prefix('profile')->name('profile.')->middleware(['auth'])->group(function(){
-    Route::get('dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
 });

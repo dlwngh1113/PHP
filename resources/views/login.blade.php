@@ -28,7 +28,7 @@
             @enderror
         </div>
         <div style="text-align: right; padding-top: 20px;">
-            <a href="{{ route('reset_password') }}">forgot your password?</a>
+            <a href="{{ route('profile.reset_password') }}">forgot your password?</a>
             <button class="input-control" type="submit">Login</button>
         </div>
     </form>

@@ -63,16 +63,6 @@ class LoginController extends Controller
 
     }
 
-    function dashboard()
-    {
-        if(Auth::check())
-        {
-            return view('dashboard');
-        }
-
-        return redirect()->route('login')->with('success', 'you are not allowed to access');
-    }
-
     function logout()
     {
         Session::flush();
