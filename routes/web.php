@@ -14,7 +14,7 @@ Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(func
     Route::get('/store', [FreeBoardController::class, 'store'])->name('store');
 });
 
-Route::prefix('profile')->name('profile.')->middleware(['auth'])->group(function(){
+Route::prefix('profile')->name('profile.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
 });
 
