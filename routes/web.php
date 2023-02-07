@@ -9,8 +9,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::prefix('verification')->name('verification.')->middleware(['auth'])->group(function() {
-    Route::get('/notice', [VerificationController::class, 'notice'])->name('notice');
+Route::prefix('verification')->name('verification.')->middleware(['auth', 'signed'])->group(function() {
+    Route::get('/notice', [VerificationController::class, 'notice'])->name('notice')->withoutMiddleware(['signed']);
     Route::post('/notice', [VerificationController::class, 'verify_email'])->name('email');
 });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\URL;
 
 class VerificationController extends Controller
 {
@@ -14,8 +15,6 @@ class VerificationController extends Controller
 
     function verify_email(EmailVerificationRequest $request)
     {
-        $request->fulfill();
-
-        return redirect('home');
+        return URL::sigendRoute('unsubscribe', ['user' => $request->user]);
     }
 }
