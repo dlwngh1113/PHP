@@ -10,8 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::prefix('verification')->name('verification.')->middleware(['auth', 'signed'])->group(function() {
-    Route::get('/notice', [VerificationController::class, 'notice'])->name('notice')->withoutMiddleware(['signed']);
-    Route::post('/notice', [VerificationController::class, 'verify_email'])->name('email');
+    Route::get('/notice/{token}', [VerificationController::class, 'notice'])->name('notice')->withoutMiddleware(['signed']);
 });
 
 Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
