@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use App\Models\User;
+use App\Mail\VerificationEmail;
 
 class LoginController extends Controller
 {
@@ -32,13 +34,19 @@ class LoginController extends Controller
 
         $data = $request->all();
 
-        User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
+            'email_verification_token' => Str::random(32),
         ]);
 
-        return redirect()->route('login')->with('success', 'Registeration Completed, now you can login');
+        \Mail::to($user->email)->send(new VerificationEmail($user));
+
+        $request->session()->flash('message', 'please check your email verification');
+
+        return redirect()->back();
+        //return redirect()->route('login')->with('success', 'Registeration Completed, now you can login');
     }
 
     function validate_login(Request $request)
