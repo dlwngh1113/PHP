@@ -35,19 +35,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = DB::table('users')->select()
-        ->where('id', $request->id)
-        ->where('password', $request->password)
-        ->get();
-
-        if ($user->count() > 0)
-        {
-            return redirect('roomEscape');
-        }
-        else
-        {
-            return redirect('user/create');
-        }
     }
 
     /**
