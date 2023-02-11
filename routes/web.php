@@ -13,7 +13,7 @@ Route::get('/', function () {
     Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify');
 //});
 
-Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
+Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
     Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
     Route::get('/store', [FreeBoardController::class, 'store'])->name('store');

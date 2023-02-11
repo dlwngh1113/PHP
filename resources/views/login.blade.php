@@ -29,6 +29,7 @@
         </div>
         <div style="text-align: right; padding-top: 20px;">
             <a href="{{ route('profile.reset_password') }}">forgot your password?</a>
+            <button class="input-control" type="button" onclick="location.href='{{ route('register') }}'">Register</button>
             <button class="input-control" type="submit">Login</button>
         </div>
     </form>
