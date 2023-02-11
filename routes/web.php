@@ -9,11 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::prefix('verification')->name('verification.')->middleware(['auth', 'signed'])->group(function() {
-    Route::get('/notice/{token}', [VerificationController::class, 'notice'])->name('notice')->withoutMiddleware(['signed']);
-});
+//Route::prefix('verification')->name('verification.')->middleware(['auth', 'signed'])->group(function() {
+    Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify');
+//});
 
-Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
+Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
     Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
     Route::get('/store', [FreeBoardController::class, 'store'])->name('store');

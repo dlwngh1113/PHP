@@ -21,6 +21,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'password' => fake()->password(),
             'email' => fake()->email(),
+            'email_verification_token' => Str::random(32),
         ];
     }
 

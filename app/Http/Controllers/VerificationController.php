@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class VerificationController extends Controller
 {
-    function notice($token = null)
+    function verify($token = null)
     {
         if($token == null) {
     		session()->flash('message', 'Invalid Login attempt');
