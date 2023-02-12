@@ -9,8 +9,17 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::prefix('/')->group(function () {
+    Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify');
+
+    Route::get('login', [LoginController::class, 'login'])->name('login');
+    Route::get('register', [LoginController::class, 'register'])->name('register');
+    Route::post('register', [LoginController::class, 'validate_register'])->name('validate_register');
+    Route::post('login', [LoginController::class, 'validate_login'])->name('validate_login');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+});
+
 Route::prefix('verification')->name('verification.')->middleware(['auth', 'verified'])->group(function() {
-    Route::get('{token}', [VerificationController::class, 'verify'])->name('verify')->withoutMiddleware('verified');
     Route::get('notice', [VerificationController::class, 'notice'])->name('notice');
 });
 
@@ -22,12 +31,4 @@ Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])
 
 Route::prefix('profile')->name('profile.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
-});
-
-Route::controller(LoginController::class)->group(function(){
-    Route::get('login', 'login')->name('login');
-    Route::get('register', 'register')->name('register');
-    Route::post('register', 'validate_register')->name('validate_register');
-    Route::post('login', 'validate_login')->name('validate_login');
-    Route::get('logout', 'logout')->name('logout');
 });
