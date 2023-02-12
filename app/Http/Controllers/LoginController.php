@@ -47,7 +47,6 @@ class LoginController extends Controller
         $request->session()->flash('message', 'please check your email verification');
 
         return redirect()->back();
-        //return redirect()->route('login')->with('success', 'Registeration Completed, now you can login');
     }
 
     function validate_login(Request $request)

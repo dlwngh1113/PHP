@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\URL;
 use Carbon\Carbon;
 
+use App\Models\User;
+
 class VerificationController extends Controller
 {
     function verify($token = null)
