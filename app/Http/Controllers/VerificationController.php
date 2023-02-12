@@ -32,8 +32,8 @@ class VerificationController extends Controller
         }
 
         $user->update([
-            'email_verified' => 1,
-            'email_verified_at' => Carbon::now(),
+            'email_verified' => true,
+            'email_verified_at' => Carbon::now()->getTimestamp(),
             'email_verification_token' => ''
         ]);
 

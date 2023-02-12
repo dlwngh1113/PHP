@@ -56,9 +56,9 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $credentials = $request->only('email', 'password', 'remember_me');
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials))
+        if (Auth::attempt($credentials, $request->remember_me))
         {
             return redirect()->route('home');
         }

@@ -26,6 +26,9 @@
             @error('password')
                 <p class="text-danger">{{ $errors->first('password') }}</p>
             @enderror
+            <p>Remember Me
+                <input class="input-control" type="checkbox" name="remember_me">
+            </p>
         </div>
         <div style="text-align: right; padding-top: 20px;">
             <a href="{{ route('profile.reset_password') }}">forgot your password?</a>
