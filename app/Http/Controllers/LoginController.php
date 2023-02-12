@@ -44,7 +44,7 @@ class LoginController extends Controller
 
         Mail::to($user->email)->send(new VerificationEmail($user));
 
-        $request->session()->flash('message', 'please check your email verification');
+        $request->session()->flash('success', 'please check your email verification');
 
         return redirect()->back();
     }
@@ -56,7 +56,7 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password', 'remember_me');
 
         if (Auth::attempt($credentials))
         {

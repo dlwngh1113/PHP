@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if ($message = Session::get('success'))
+    <div class="alert-info">
+        <p class="text-danger">{{ $message }}</p>
+    </div>
+@endif
+
 <form action="{{ route('validate_register') }}" method="POST">
     @csrf
     <input type="text" name="name" placeholder="name">

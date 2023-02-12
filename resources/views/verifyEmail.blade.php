@@ -4,7 +4,7 @@
         <p>Dear <strong>{{ $user->name }}</strong></p>
             <p>Your account has been created, please activate your account by clicking this link</p>
             <p>
-                <a href="{{ route('verify', ['token' => $user->email_verification_token]) }}">
+                <a href="{{ route('verification.verify', ['token' => $user->email_verification_token]) }}">
                 Go to the page.
                 </a>
             </p>

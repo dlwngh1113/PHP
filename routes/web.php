@@ -5,14 +5,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FreeBoardController;
 use App\Http\Controllers\VerificationController;
 
-Auth::routes(['verify' => true]);
-
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
 Route::prefix('verification')->name('verification.')->middleware(['auth', 'verified'])->group(function() {
-    Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify')->withoutMiddleware('verified');
+    Route::get('{token}', [VerificationController::class, 'verify'])->name('verify')->withoutMiddleware('verified');
     Route::get('notice', [VerificationController::class, 'notice'])->name('notice');
 });
 
