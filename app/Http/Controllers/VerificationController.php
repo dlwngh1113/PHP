@@ -11,6 +11,11 @@ use App\Models\User;
 
 class VerificationController extends Controller
 {
+    function notice()
+    {
+        return view('verification.notice');
+    }
+
     function verify($token = null)
     {
         if($token == null) {

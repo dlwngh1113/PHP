@@ -5,15 +5,18 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FreeBoardController;
 use App\Http\Controllers\VerificationController;
 
+Auth::routes(['verify' => true]);
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-//Route::prefix('verification')->name('verification.')->middleware(['auth', 'signed'])->group(function() {
-    Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify');
-//});
+Route::prefix('verification')->name('verification.')->middleware(['auth', 'verified'])->group(function() {
+    Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify')->withoutMiddleware('verified');
+    Route::get('notice', [VerificationController::class, 'notice'])->name('notice');
+});
 
-Route::prefix('freeboard')->name('freeboard.')->middleware(['auth'])->group(function(){
+Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
     Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
     Route::get('/store', [FreeBoardController::class, 'store'])->name('store');
