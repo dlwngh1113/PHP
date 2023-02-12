@@ -42,12 +42,11 @@ class LoginController extends Controller
             'email_verification_token' => Str::random(32),
         ]);
 
-        //Mail::to($user->email)->send(new VerificationEmail($user));
+        Mail::to($user->email)->send(new VerificationEmail($user));
 
-        //$request->session()->flash('message', 'please check your email verification');
+        $request->session()->flash('success', 'please check your email verification');
 
-        //return redirect()->back();
-        return redirect()->route('login')->with('success', 'Registeration Completed, now you can login');
+        return redirect()->back();
     }
 
     function validate_login(Request $request)
@@ -59,7 +58,7 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials))
+        if (Auth::attempt($credentials, $request->remember_me))
         {
             return redirect()->route('home');
         }
