@@ -17,12 +17,12 @@ class LoginController extends Controller
 
     function login()
     {
-        return view('login');
+        return view('user.login');
     }
 
     function register()
     {
-        return view('register');
+        return view('user.register');
     }
 
     function validate_register(Request $request)
