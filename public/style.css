@@ -34,7 +34,15 @@
 }
 
 .container-table{
+    width: 100%;
+    display: grid;
     border-spacing: 5px;
+    text-align: center;
+}
+.container-row{
+    width: 50%;
+    height: 10vh;
+    display: grid;
     text-align: center;
 }
 

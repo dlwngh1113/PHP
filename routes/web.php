@@ -26,14 +26,11 @@ Route::prefix('verification')->name('verification.')->middleware(['auth', 'verif
 
 Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/', [ProfileController::class, 'reset_password'])->name('reset_password');
 });
 
 Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/', [FreeBoardController::class, 'index'])->name('index');
     Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
     Route::get('/store', [FreeBoardController::class, 'store'])->name('store');
-});
-
-Route::prefix('profile')->name('profile.')->middleware(['auth', 'verified'])->group(function(){
-    Route::get('reset_password', [LoginController::class, 'reset_password'])->name('reset_password');
 });
