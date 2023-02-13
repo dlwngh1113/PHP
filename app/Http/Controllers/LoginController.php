@@ -13,8 +13,6 @@ use App\Mail\VerificationEmail;
 
 class LoginController extends Controller
 {
-    //
-
     function login()
     {
         return view('user.login');
@@ -64,11 +62,6 @@ class LoginController extends Controller
         }
 
         return redirect()->route('login')->with('success', 'Login details are not validated');
-    }
-
-    function reset_password(Request $request)
-    {
-
     }
 
     function logout()

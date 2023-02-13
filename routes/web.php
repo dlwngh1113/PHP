@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FreeBoardController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,10 @@ Route::prefix('/')->group(function () {
 
 Route::prefix('verification')->name('verification.')->middleware(['auth', 'verified'])->group(function() {
     Route::get('notice', [VerificationController::class, 'notice'])->name('notice');
+});
+
+Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [ProfileController::class, 'index'])->name('profile');
 });
 
 Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
