@@ -28,6 +28,10 @@ class ProfileController extends Controller
             return redirect()->back();
         }
 
+        $request->user()->update([
+            'password' => Hash::make($request->password),
+        ]);
+
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
