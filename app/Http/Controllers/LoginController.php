@@ -13,16 +13,14 @@ use App\Mail\VerificationEmail;
 
 class LoginController extends Controller
 {
-    //
-
     function login()
     {
-        return view('login');
+        return view('user.login');
     }
 
     function register()
     {
-        return view('register');
+        return view('user.register');
     }
 
     function validate_register(Request $request)
@@ -44,7 +42,7 @@ class LoginController extends Controller
 
         Mail::to($user->email)->send(new VerificationEmail($user));
 
-        $request->session()->flash('success', 'please check your email verification');
+        $request->session()->flash('message', 'please check your email verification');
 
         return redirect()->back();
     }
@@ -63,12 +61,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->route('login')->with('success', 'Login details are not validated');
-    }
-
-    function reset_password(Request $request)
-    {
-
+        return redirect()->route('login')->with('message', 'Login details are not validated');
     }
 
     function logout()

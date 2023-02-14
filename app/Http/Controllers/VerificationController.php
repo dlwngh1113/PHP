@@ -20,7 +20,7 @@ class VerificationController extends Controller
     {
         if($token == null) {
     		session()->flash('message', 'Invalid Login attempt');
-    	    return redirect()->route('login')->with('success', 'Invalid Login attempt');
+    	    return redirect()->route('login');
         }
 
         $user = User::where('email_verification_token',$token)->first();
@@ -28,7 +28,7 @@ class VerificationController extends Controller
         if($user == null )
         {
            session()->flash('message', 'Invalid Login attempt');
-           return redirect()->route('login')->with('success', 'Invalid Login attempt');
+           return redirect()->route('login');
         }
 
         $user->update([
@@ -37,7 +37,7 @@ class VerificationController extends Controller
             'email_verification_token' => ''
         ]);
 
-        session()->flash('success', 'Your account is activated, you can log in now');
-        return redirect()->route('login')->with('success', 'Your account is activated, you can log in now');
+        session()->flash('message', 'Your account is activated, you can log in now');
+        return redirect()->route('login');
     }
 }
