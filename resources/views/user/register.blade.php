@@ -8,7 +8,7 @@
     </div>
 @endif
 
-<form action="{{ route('validate_register') }}" method="POST">
+<form method="POST" action="{{ route('validate_register') }}">
     @csrf
     <input type="text" name="name" placeholder="name">
     @error('name')

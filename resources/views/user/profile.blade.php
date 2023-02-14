@@ -27,8 +27,12 @@
         </div>
         <div class="container-rightrow">
             <form method="POST" action="{{ route('user.reset_password') }}">
-                <p>Enter New Password <input type="text" placeholder="password"></p>
-                <p><button type="submit>">Reset</button></p>
+                @csrf
+                <p>Enter New Password <input type="text" name="password" placeholder="password"></p>
+                @error('password')
+                    <p class="text-danger">{{ $errors->first('password') }}</p>
+                @enderror
+                <p><button type="submit">Reset</button></p>
             </form>
         </div>
 
