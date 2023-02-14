@@ -16,6 +16,10 @@ class ProfileController extends Controller
 
     function reset_password(Request $request)
     {
+        $request->validate([
+            'password' => 'required|min:6'
+        ]);
+
 
     }
 }

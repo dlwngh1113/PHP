@@ -4,7 +4,7 @@
 
 <div style="padding: 5%"></div>
 
-@if ($message = Session::get('success'))
+@if ($message = Session::get('message'))
     <div class="alert-info">
         <p class="text-danger">{{ $message }}</p>
     </div>

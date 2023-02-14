@@ -42,7 +42,7 @@ class LoginController extends Controller
 
         Mail::to($user->email)->send(new VerificationEmail($user));
 
-        $request->session()->flash('success', 'please check your email verification');
+        $request->session()->flash('message', 'please check your email verification');
 
         return redirect()->back();
     }
@@ -61,7 +61,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->route('login')->with('success', 'Login details are not validated');
+        return redirect()->route('login')->with('message', 'Login details are not validated');
     }
 
     function logout()
