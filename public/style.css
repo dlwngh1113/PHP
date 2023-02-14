@@ -37,17 +37,17 @@
     width: 100%;
     border-spacing: 5px;
     text-align: center;
+    display: grid;
 }
 .container-leftrow{
     width: 30%;
-    float: left;
     text-align: center;
+    background-color: rgba(122, 235, 255, 0.651);
 }
 .container-rightrow{
-    width: 70%;
-    float: left;
-    display: grid;
+    width: 100%;
     text-align: center;
+    background-color: rgba(122, 235, 255, 0.336);
 }
 
 .alert-info{

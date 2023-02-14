@@ -26,7 +26,8 @@ Route::prefix('verification')->name('verification.')->middleware(['auth', 'verif
 
 Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('profile');
-    Route::post('/', [ProfileController::class, 'reset_password'])->name('reset_password');
+    Route::post('/reset_password', [ProfileController::class, 'reset_password'])->name('reset_password');
+    Route::post('/delete_user', [ProfileController::class, 'delete_user'])->name('delete_user');
 });
 
 Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){

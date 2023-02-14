@@ -38,4 +38,9 @@ class ProfileController extends Controller
 
         return redirect()->route('home');
     }
+
+    function delete_user()
+    {
+
+    }
 }
