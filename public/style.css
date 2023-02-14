@@ -35,13 +35,17 @@
 
 .container-table{
     width: 100%;
-    display: grid;
     border-spacing: 5px;
     text-align: center;
 }
-.container-row{
-    width: 50%;
-    height: 10vh;
+.container-leftrow{
+    width: 30%;
+    float: left;
+    text-align: center;
+}
+.container-rightrow{
+    width: 70%;
+    float: left;
     display: grid;
     text-align: center;
 }
