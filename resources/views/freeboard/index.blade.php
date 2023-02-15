@@ -2,7 +2,7 @@
 
 @section('main')
 
-<table class="container-table">
+<table style="text-align: center">
     <th>user_name</th>
     <th>title</th>
     <th>created_at</th>
