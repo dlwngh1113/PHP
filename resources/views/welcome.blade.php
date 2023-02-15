@@ -4,8 +4,13 @@
 
 <div class="container-lb">
     <ul class="banner-label">
+        @foreach ($boards as $board)
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('board.index', $board->id) }}">{{ $board->name }}</a>
+            </li>
+        @endforeach
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('freeboard.index') }}">자유게시판</a>
+            <a class="nav-link" href="{{ route('board.index') }}">자유게시판</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">tab2</a>

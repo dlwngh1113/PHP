@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\FreeBoardController;
+use App\Http\Controllers\BoardController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\ProfileController;
 
@@ -30,8 +30,8 @@ Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(fu
     Route::post('/delete_user', [ProfileController::class, 'delete_user'])->name('delete_user');
 });
 
-Route::prefix('freeboard')->name('freeboard.')->middleware(['auth', 'verified'])->group(function(){
-    Route::get('/', [FreeBoardController::class, 'index'])->name('index');
-    Route::get('/{post}', [FreeBoardController::class, 'show'])->name('show');
-    Route::get('/store', [FreeBoardController::class, 'store'])->name('store');
+Route::prefix('board')->name('board.')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/{id}', [BoardController::class, 'index'])->name('index');
+    Route::get('/{post}', [BoardController::class, 'show'])->name('show');
+    Route::get('/store', [BoardController::class, 'store'])->name('store');
 });
