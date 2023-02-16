@@ -4,26 +4,7 @@
 
 <div class="container-lb">
     <ul class="banner-label">
-        @foreach ($boards as $board)
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('board.index', $board->id) }}">{{ $board->name }}</a>
-            </li>
-        @endforeach
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('board.index') }}">자유게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab2</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab3</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab4</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab5</a>
-        </li>
+        <x-board/>
     </ul>
     @yield('main')
 </div>
