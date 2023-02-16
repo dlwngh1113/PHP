@@ -21,9 +21,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->name(),
-            'content' => fake()->sentence(),
-            'user_id' => User::factory(),
-            'board_id' => Board::factory()
+            'content' => fake()->realText(),
         ];
     }
 }

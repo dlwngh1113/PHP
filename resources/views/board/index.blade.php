@@ -8,7 +8,7 @@
     <th>created_at</th>
     @foreach ($posts as $post)
         <tr>
-            <td><a href="{{ route('freeboard.show', ['post' => $post->id]) }}">{{ $post->name }}</a></td>
+            <td><a href="{{ route('board.show', ['post' => $post->id]) }}">{{ $post->name }}</a></td>
             <td>{{ $post->title }}</td>
             <td>{{ $post->created_at }}</td>
         </tr>
@@ -17,6 +17,6 @@
 
 {{ $posts->links() }}
 
-<button type="button" onclick="{{ route('freeboard.store') }}">New Post</button>
+<button type="button" onclick="{{ route('board.store') }}">New Post</button>
 
 @endsection
