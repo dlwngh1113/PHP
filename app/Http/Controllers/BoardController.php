@@ -32,11 +32,11 @@ class BoardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Board  $board
+     * @param  \App\Models\Post  $board
      * @return \Illuminate\Http\Response
      */
-    public function show(Board $board)
+    public function show($id)
     {
-        //
+        return view('board.post', ['post' => DB::table('posts')->where('id', $id)->get()]);
     }
 }

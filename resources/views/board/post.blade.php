@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('welcome')
 
 @section('content')
     <div style="text-align: center">

@@ -3,13 +3,11 @@
 @section('main')
 
 <table style="text-align: center">
-    <th>user_name</th>
     <th>title</th>
     <th>created_at</th>
     @foreach ($posts as $post)
         <tr>
-            <td><a href="{{ route('board.show', ['post' => $post->id]) }}">{{ $post->name }}</a></td>
-            <td>{{ $post->title }}</td>
+            <td><a href="{{ route('board.post.show', ['post' => $post->id]) }}">{{ $post->title }}</a></td>
             <td>{{ $post->created_at }}</td>
         </tr>
     @endforeach
@@ -17,6 +15,6 @@
 
 {{ $posts->links() }}
 
-<button type="button" onclick="{{ route('board.store') }}">New Post</button>
+<button type="button" onclick="{{ route('board.post.store') }}">New Post</button>
 
 @endsection

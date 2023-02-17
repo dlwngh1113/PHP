@@ -3,9 +3,7 @@
 @section('content')
 
 <div class="container-lb">
-    <ul class="banner-label">
-        <x-board/>
-    </ul>
+    <x-board/>
     @yield('main')
 </div>
 
