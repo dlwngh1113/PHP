@@ -18,15 +18,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::factory()
-        ->count(10)->create();
-
         $boards = Board::factory()
         ->count(5)->create();
 
-        Post::factory()
-        ->count(100)
-        ->for([$users[rand(0, 9)], $boards[rand(0, 4)]])
-        ->create();
+        $users = User::factory()->count(10)->create()->each(function ($user){
+             Post::factory()->count(10)->create(['user_id' => $user->id, 'board_id' => $boards[rand(0,4)]->id]);
+        });
     }
 }
