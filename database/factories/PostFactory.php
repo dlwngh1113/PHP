@@ -22,6 +22,8 @@ class PostFactory extends Factory
         return [
             'title' => fake()->name(),
             'content' => fake()->realText(),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'board_id' => Board::inRandomOrder()->first()->id,
         ];
     }
 }
