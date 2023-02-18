@@ -32,11 +32,11 @@ Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(fu
 });
 
 Route::prefix('board/{id}')->name('board.')->middleware(['auth', 'verified'])->group(function(){
-    Route::get('/', [BoardController::class, 'index'])->name('index');
+    Route::get('/', [BoardController::class, 'index']);
 
     Route::controller(PostController::class)->group(function($id) {
+        Route::get('/index', [PostController::class, 'index'])->name('index');
         Route::get('/{post}', [PostController::class, 'show'])->name('show');
         Route::post('/store', [PostController::class, 'store'])->name('store');
-        Route::get('/create', [PostController::class, 'create'])->name('create');
     });
 });

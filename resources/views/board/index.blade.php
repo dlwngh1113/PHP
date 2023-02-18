@@ -15,6 +15,6 @@
 
 {{ $posts->links() }}
 
-<button type="button" onclick="location.href='{{ route('board.create', ['id' => $id]) }}'">New Post</button>
+<button type="button" onclick="location.href='{{ route('board.index', ['id' => $id]) }}'">New Post</button>
 
 @endsection

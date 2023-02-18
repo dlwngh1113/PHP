@@ -15,6 +15,6 @@ class BoardController extends Controller
      */
     public function index($id)
     {
-        return view('board.index', ['id' => $id, 'posts' => DB::table('posts')->where('board_id', $id)->paginate(20)]);
+        return view('board.index', ['id' => $id, 'posts' => DB::table('posts')->where('board_id', $id)->orderBy('created_at', 'DESC')->paginate(20)]);
     }
 }

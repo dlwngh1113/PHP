@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="container">
-    <form method="POST" action="{{ route('board.store') }}">
+    <form method="POST" action="{{ route('board.store', ['id' => $id]) }}">
         @csrf
         <p style="min-width: 100%;"><input type="text" name="title" placeholder="title" style="min-width: inherit"></p>
         @error('title')
