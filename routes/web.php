@@ -31,12 +31,12 @@ Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(fu
     Route::post('/delete_user', [ProfileController::class, 'delete_user'])->name('delete_user');
 });
 
-Route::prefix('board')->name('board.')->middleware(['auth', 'verified'])->group(function(){
-    Route::get('/{id}', [BoardController::class, 'index'])->name('index');
-});
+Route::prefix('board/{id}')->name('board.')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('/', [BoardController::class, 'index'])->name('index');
 
-Route::prefix('post')->name('post.')->middleware(['auth', 'verified'])->group(function() {
-    Route::get('/', [PostController::class, 'index'])->name('index');
-    Route::get('/{post}', [PostController::class, 'show'])->name('show');
-    Route::post('/store', [PostController::class, 'store'])->name('store');
+    Route::controller(PostController::class)->group(function($id) {
+        Route::get('/{post}', [PostController::class, 'show'])->name('show');
+        Route::post('/store', [PostController::class, 'store'])->name('store');
+        Route::get('/create', [PostController::class, 'create'])->name('create');
+    });
 });

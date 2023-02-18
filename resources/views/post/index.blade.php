@@ -1,9 +1,8 @@
 @extends('welcome')
 
 @section('main')
-
 <div class="container">
-    <form method="POST" action="{{ route('post.store') }}">
+    <form method="POST" action="{{ route('board.store') }}">
         @csrf
         <p style="min-width: 100%;"><input type="text" name="title" placeholder="title" style="min-width: inherit"></p>
         @error('title')
