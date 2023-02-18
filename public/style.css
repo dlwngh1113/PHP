@@ -13,6 +13,7 @@
 .container{
     float: left;
     align-content: center;
+    text-align: center;
 }
 .container-lb{
     float: left;
@@ -48,14 +49,6 @@
     width: 100%;
     text-align: center;
     background-color: rgba(122, 235, 255, 0.336);
-}
-
-.alert-info{
-    outline-width: 1px;
-    outline-color: aquamarine;
-    background-color: #c4db66;
-    color: whitesmoke;
-    text-align: center;
 }
 
 .banner-label{
