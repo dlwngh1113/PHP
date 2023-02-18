@@ -15,6 +15,6 @@
 
 {{ $posts->links() }}
 
-<button type="button" onclick="{{ route('post.store') }}">New Post</button>
+<button type="button" onclick="{{ route('post.index') }}">New Post</button>
 
 @endsection
