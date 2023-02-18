@@ -5,7 +5,7 @@
 <div style="padding: 5%"></div>
 
 @if ($message = Session::get('message'))
-    <x-popup type="info" message="$message"/>
+    <x-popup type="info" message="{{ $message }}"/>
 @endif
 
 <div class="container-login">
