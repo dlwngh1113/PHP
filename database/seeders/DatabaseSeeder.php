@@ -6,7 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\User;
-use App\Models\FreeBoardPost;
+use App\Models\Board;
+use App\Models\Post;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,10 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        FreeBoardPost::factory(20)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $boards = Board::factory()->count(5)->create();
+        $users = User::factory()->count(10)->create();
+        $posts = Post::factory()->count(100)->create();
     }
 }

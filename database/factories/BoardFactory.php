@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MyUser>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Board>
  */
-class MyUserFactory extends Factory
+class BoardFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class MyUserFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name(),
         ];
     }
 }

@@ -3,23 +3,7 @@
 @section('content')
 
 <div class="container-lb">
-    <ul class="banner-label">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('freeboard.index') }}">자유게시판</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab2</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab3</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab4</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">tab5</a>
-        </li>
-    </ul>
+    <x-board/>
     @yield('main')
 </div>
 

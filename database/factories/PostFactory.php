@@ -3,12 +3,14 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 use App\Models\User;
+use App\Models\Board;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\odel=FreeBoardPost>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
-class FreeBoardPostFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +20,10 @@ class FreeBoardPostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
             'title' => fake()->name(),
-            'content' => fake()->sentence(),
+            'content' => fake()->realText(),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'board_id' => Board::inRandomOrder()->first()->id,
         ];
     }
 }
