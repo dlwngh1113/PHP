@@ -1,9 +1,7 @@
 @extends('layouts.master')
 
 @if ($message = Session::get('message'))
-    <div class="alert-info">
-        <p class="text-danger">{{ $message }}</p>
-    </div>
+    <x-popup type="info" message="{{ $message }}"/>
 @endif
 
 @section('content')
