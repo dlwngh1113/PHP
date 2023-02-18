@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\ProfileController;
 
@@ -32,8 +33,10 @@ Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(fu
 
 Route::prefix('board')->name('board.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('/{id}', [BoardController::class, 'index'])->name('index');
-    Route::prefix('/post')->name('post.')->group(function() {
-        Route::get('/post/{post}', [BoardController::class, 'show'])->name('show');
-        Route::get('/store', [BoardController::class, 'store'])->name('store');
-    });
+});
+
+Route::prefix('post')->name('post.')->group(function() {
+    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::get('/{post}', [PostController::class, 'show'])->name('show');
+    Route::get('/store', [PostController::class, 'store'])->name('store');
 });

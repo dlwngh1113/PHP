@@ -2,8 +2,8 @@
 
 @section('content')
     <div style="text-align: center">
-        <span>{{ $post->title }}</span>
-        <span>{{ $post->created_at }}</span>
+        <p>{{ $post->title }}</p>
+        <p>{{ $post->created_at }}</p>
     </div>
     <div class="container-lb" style="text-align: center">
         <p>{{ $post->content }}</p>
