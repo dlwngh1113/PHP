@@ -1,6 +1,7 @@
-@extends('welcome')
-
-@section('main')
+<x-layout>
+    <x-slot:title>
+        board
+    </x-slot:title>
 <div class="container">
     <form method="POST" action="{{ route('board.store', ['id' => $id]) }}">
         @csrf
@@ -15,4 +16,4 @@
         <button type="submit">Put up</button>
     </form>
 </div>
-@endsection
+</x-layout>

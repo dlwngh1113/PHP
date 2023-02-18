@@ -1,7 +1,8 @@
-@extends('welcome')
-
-@section('main')
-
+<x-layout>
+    <x-slot:title>
+        board
+    </x-slot>
+    <x-board/>
 <table style="text-align: center">
     <th>title</th>
     <th>created_at</th>
@@ -17,4 +18,4 @@
 
 <button type="button" onclick="location.href='{{ route('board.index', ['id' => $id]) }}'">New Post</button>
 
-@endsection
+</x-layout>
