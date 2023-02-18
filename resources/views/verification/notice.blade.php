@@ -1,7 +1,9 @@
 @extends('layouts.master')
-
-@section('content')
+<x-layout>
+    <x-slot:title>
+        Notification
+    </x-slot:title>
     <div class="container-lb">
         <p>Notice view</p>
     </div>
-@endsection
+</x-layout>
