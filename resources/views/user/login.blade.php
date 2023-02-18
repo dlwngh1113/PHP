@@ -15,14 +15,14 @@
             <p class="input-control" style="text-align: left">Email</p>
             <input class="input-control" type="text" name="email">
             @error('email')
-                <p class="text-danger">{{ $errors->first('email') }}</p>
+                <p class="error">{{ $errors->first('email') }}</p>
             @enderror
         </div>
         <div>
             <p class="input-control" style="text-align: left">Password</p>
             <input class="input-control" type="password" name="password">
             @error('password')
-                <p class="text-danger">{{ $errors->first('password') }}</p>
+                <p class="error">{{ $errors->first('password') }}</p>
             @enderror
             <p>Remember Me
                 <input class="input-control" type="checkbox" name="remember_me">

@@ -3,9 +3,7 @@
 @section('content')
 
 @if ($message = Session::get('message'))
-    <div class="alert-info">
-        <p class="text-danger">{{ $message }}</p>
-    </div>
+    <x-popup type="info" message="{{ $message }}"/>
 @endif
 
 <form method="POST" action="{{ route('validate_register') }}">

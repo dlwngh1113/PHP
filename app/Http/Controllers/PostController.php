@@ -14,9 +14,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('post.index');
+        return view('post.index', ['id' => $id]);
     }
 
     /**
@@ -25,9 +25,21 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'min:1',
+            'content' => 'min:1|max:1000',
+        ]);
+
+        $post = Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'board_id' => $id,
+            'user_id' => $request->user()->id,
+        ]);
+
+        return redirect()->route('board.', ['id' => $id]);
     }
 
     /**
@@ -36,9 +48,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id, Post $post)
     {
-        return view('board.post', ['post' => Post::find($post->id)]);
+        return view('post.show', ['post' => $post]);
     }
 
     /**
