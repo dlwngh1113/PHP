@@ -38,5 +38,5 @@ Route::prefix('board')->name('board.')->middleware(['auth', 'verified'])->group(
 Route::prefix('post')->name('post.')->middleware(['auth', 'verified'])->group(function() {
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::get('/{post}', [PostController::class, 'show'])->name('show');
-    Route::get('/store', [PostController::class, 'store'])->name('store');
+    Route::post('/store', [PostController::class, 'store'])->name('store');
 });
