@@ -89,6 +89,9 @@ ul li { float: left; margin-left: 20px; list-style: none;}
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 1000;
+
+    z-index: -1;
+    opacity: 0;
 }
 .window{
     position: relative;
@@ -105,6 +108,11 @@ ul li { float: left; margin-left: 20px; list-style: none;}
 
     width: 500px;
     height: 500px;
+}
+.show{
+    opacity: 1;
+    z-index: 1000;
+    transition: all 0.5s;
 }
 .error{
     color: red;
