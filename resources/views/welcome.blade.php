@@ -1,10 +1,9 @@
-@extends('layouts.master')
-
-@section('content')
-
+<x-layout>
+    <x-slot:title>
+        Juho's Site
+    </x-slot:title>
 <div class="container-lb">
     <x-board/>
-    @yield('main')
 </div>
 
 <div class="container-rb">
@@ -26,5 +25,4 @@
         @endguest
     </ul>
 </div>
-
-@endsection
+</x-layout>
