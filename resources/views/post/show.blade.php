@@ -7,5 +7,6 @@
     <p>{{ $post->title }}</p>
     <p>{{ $post->created_at }}</p>
     <p>{{ $post->content }}</p>
+    <x-comment post-id="{{ $post->id }}"/>
 </div>
 </x-layout>

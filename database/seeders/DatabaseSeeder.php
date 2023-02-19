@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Board;
 use App\Models\Post;
+use App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $boards = Board::factory()->count(5)->create();
         $users = User::factory()->count(10)->create();
         $posts = Post::factory()->count(100)->create();
+        $comments = Comment::factory()->count(500)->create();
     }
 }
