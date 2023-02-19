@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -50,7 +51,14 @@ class PostController extends Controller
      */
     public function show($id, Post $post)
     {
-        return view('post.show', ['post' => $post]);
+        $comments = DB::table('comments')
+                        ->join('users', 'comments.user_id', '=', 'users.id')
+                        ->where('post_id', $post->id)
+                        ->select('users.name', 'comments.*')
+                        ->orderBy('comments.created_at')
+                        ->get();
+
+        return view('post.show', ['post' => $post, 'comments' => $comments]);
     }
 
     /**
