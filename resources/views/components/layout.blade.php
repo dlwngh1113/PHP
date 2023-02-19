@@ -16,6 +16,15 @@
                 align-content: center;
                 text-align: center;
             }
+            .container-lb{
+                float: left;
+                width: 70%;
+                display: grid;
+            }
+            .container-rb{
+                float: left;
+                width: 30%;
+            }
         </style>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -30,6 +39,8 @@
             </div>
         </div>
 
-        {{ $slot }}
+        <div>
+            {{ $slot }}
+        </div>
     </body>
 </html>

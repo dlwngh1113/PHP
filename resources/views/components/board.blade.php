@@ -1,5 +1,6 @@
 <style>
 .banner-label{
+    width: inherit;
     float: left;
     padding: 10px;
     text-align: center;
