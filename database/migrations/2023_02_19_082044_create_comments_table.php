@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('content');
             $table->integer('recommend')->default(0);
             $table->integer('unrecommend')->default(0);
+            $table->foreignId('post_id')->constrained('posts')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
@@ -31,6 +32,10 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign('comments_post_id_foreign');
+            $table->dropForeign('comments_user_id_foreign');
+        });
         Schema::dropIfExists('comments');
     }
 };
