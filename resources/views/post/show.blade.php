@@ -26,8 +26,13 @@
     <div>
         @foreach ($comments as $comment)
             <div>
-                <div class="comment-nickname">{{ $comment->name }}</div>
-                <div class="comment-recommend">{{ $comment->recommend }} {{ $comment->unrecommend }}</div>
+                <div class="comment-nickname">
+                    {{ $comment->name }}
+                </div>
+                <div class="comment-recommend">
+                    <button type="button">Recommend - {{ $comment->recommend }}</button>
+                    <button type="button">UnRecommend - {{ $comment->unrecommend }}</button>
+                </div>
                 <div class="comment-content">{{ $comment->content }}</div>
             </div>
         @endforeach
