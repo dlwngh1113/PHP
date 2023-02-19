@@ -1,7 +1,7 @@
-@extends('layouts.master')
-
-@section('content')
-
+<x-layout>
+    <x-slot:title>
+        Login
+    </x-slot:title>
 <div style="padding: 5%"></div>
 
 @if ($message = Session::get('message'))
@@ -35,5 +35,4 @@
         </div>
     </form>
 </div>
-
-@endsection
+</x-layout>

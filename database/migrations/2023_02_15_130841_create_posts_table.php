@@ -20,14 +20,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('content');
 
-            $table->foreignId('user_id')
-                  ->constrained()
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('board_id')
-                  ->constrained()
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('board_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

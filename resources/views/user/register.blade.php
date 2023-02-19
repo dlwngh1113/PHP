@@ -1,6 +1,7 @@
-@extends('layouts.master')
-
-@section('content')
+<x-layout>
+    <x-slot:title>
+        Register
+    </x-slot:title>
 
 @if ($message = Session::get('message'))
     <x-popup type="info" message="{{ $message }}"/>
@@ -22,4 +23,4 @@
         @enderror
     <button type="submit">Register</button>
 </form>
-@endsection
+</x-layout>
