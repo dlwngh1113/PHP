@@ -25,8 +25,8 @@
                 {{ $comment->name }}
             </div>
             <div class="comment-like">
-                <button type="button"><img src="{{ asset('image/thumb.png') }}" alt="thunb comment" width="25px">{{ $comment->like }}</button>
-                <button type="button"><img src="{{ asset('image/unthumb.png') }}" alt="unthumb comment" width="25px">{{ $comment->dislike }}</button>
+                <button type="submit" onclick="{{ route('comment.verificate_like') }}"><img src="{{ asset('image/thumb.png') }}" alt="thunb comment" width="25px">{{ $comment->like }}</button>
+                <button type="submit" onclick="{{ route('comment.verificate_dislike') }}"><img src="{{ asset('image/unthumb.png') }}" alt="unthumb comment" width="25px">{{ $comment->dislike }}</button>
             </div>
             <div class="comment-content">{{ $comment->content }}</div>
         </div>

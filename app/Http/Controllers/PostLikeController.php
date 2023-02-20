@@ -6,17 +6,7 @@ use Illuminate\Http\Request;
 
 class PostLikeController extends Controller
 {
-    public function like()
-    {
-
-    }
-
     public function verificate_like()
-    {
-
-    }
-
-    public function dislike()
     {
 
     }

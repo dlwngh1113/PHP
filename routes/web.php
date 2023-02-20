@@ -43,3 +43,8 @@ Route::prefix('board/{id}')->name('board.')->group(function(){
         });
     });
 });
+
+Route::prefix('comment')->name('comment.')->middleware(['auth', 'verified'])->group(function () {
+    Route::post('/comment_like', [PostLikeController::class, 'verificate_like'])->name('verificate_like');
+    Route::post('/comment_dislike', [PostLikeController::class, 'verificate_dislike'])->name('verificate_dislike');
+});
