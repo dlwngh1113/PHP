@@ -23,7 +23,7 @@ class LoginController extends Controller
         return view('user.register');
     }
 
-    function validate_register(Request $request)
+    function verificate_register(Request $request)
     {
         $request->validate([
             'name' => 'required',
