@@ -16,8 +16,8 @@ Route::prefix('/')->group(function () {
 
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::get('register', [LoginController::class, 'register'])->name('register');
-    Route::post('register', [LoginController::class, 'validate_register'])->name('validate_register');
-    Route::post('login', [LoginController::class, 'validate_login'])->name('validate_login');
+    Route::post('register', [LoginController::class, 'verificate_register'])->name('verificate_register');
+    Route::post('login', [LoginController::class, 'verificate_login'])->name('verificate_login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
@@ -31,12 +31,20 @@ Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(fu
     Route::post('/delete_user', [ProfileController::class, 'delete_user'])->name('delete_user');
 });
 
-Route::prefix('board/{id}')->name('board.')->middleware(['auth', 'verified'])->group(function(){
+Route::prefix('board/{id}')->name('board.')->group(function(){
     Route::get('/', [BoardController::class, 'index']);
 
     Route::controller(PostController::class)->group(function($id) {
         Route::get('/index', [PostController::class, 'index'])->name('index');
         Route::get('/{post}', [PostController::class, 'show'])->name('show');
-        Route::post('/store', [PostController::class, 'store'])->name('store');
+
+        Route::middleware(['auth', 'verified'])->group(function () {
+            Route::post('/store', [PostController::class, 'store'])->name('store');
+        });
     });
+});
+
+Route::prefix('comment')->name('comment.')->middleware(['auth', 'verified'])->group(function () {
+    Route::post('/comment_like', [PostLikeController::class, 'verificate_like'])->name('verificate_like');
+    Route::post('/comment_dislike', [PostLikeController::class, 'verificate_dislike'])->name('verificate_dislike');
 });

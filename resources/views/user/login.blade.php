@@ -9,7 +9,7 @@
 @endif
 
 <div class="container-login">
-    <form method="POST" action="{{ route('validate_login') }}">
+    <form method="POST" action="{{ route('verificate_login') }}">
         @csrf
         <div>
             <p class="input-control" style="text-align: left">Email</p>

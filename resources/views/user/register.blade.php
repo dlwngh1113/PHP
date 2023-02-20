@@ -7,7 +7,7 @@
     <x-popup type="info" message="{{ $message }}"/>
 @endif
 
-<form method="POST" action="{{ route('validate_register') }}">
+<form method="POST" action="{{ route('verificate_register') }}">
     @csrf
     <input type="text" name="name" placeholder="name">
     @error('name')
