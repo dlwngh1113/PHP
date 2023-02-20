@@ -17,7 +17,7 @@ Route::prefix('/')->group(function () {
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::get('register', [LoginController::class, 'register'])->name('register');
     Route::post('register', [LoginController::class, 'verificate_register'])->name('verificate_register');
-    Route::post('login', [LoginController::class, 'validate_login'])->name('validate_login');
+    Route::post('login', [LoginController::class, 'verificate_login'])->name('verificate_login');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 

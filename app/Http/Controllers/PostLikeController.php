@@ -11,7 +11,17 @@ class PostLikeController extends Controller
 
     }
 
-    public function validate_like()
+    public function verificate_like()
+    {
+
+    }
+
+    public function dislike()
+    {
+
+    }
+
+    public function verificate_dislike()
     {
 
     }

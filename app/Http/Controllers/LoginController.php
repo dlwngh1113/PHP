@@ -47,7 +47,7 @@ class LoginController extends Controller
         return redirect()->back();
     }
 
-    function validate_login(Request $request)
+    function verificate_login(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
