@@ -5,7 +5,7 @@
         text-align: left;
         background-color: #e2eeae;
     }
-    .commnet-recommend{
+    .commnet-like{
         width: 30%;
         float: left;
         text-align: right;
@@ -24,9 +24,9 @@
             <div class="comment-nickname">
                 {{ $comment->name }}
             </div>
-            <div class="comment-recommend">
-                <button type="button"><img src="{{ asset('image/thumb.png') }}" alt="thunb comment" width="25px">{{ $comment->recommend }}</button>
-                <button type="button"><img src="{{ asset('image/unthumb.png') }}" alt="unthumb comment" width="25px">{{ $comment->unrecommend }}</button>
+            <div class="comment-like">
+                <button type="button"><img src="{{ asset('image/thumb.png') }}" alt="thunb comment" width="25px">{{ $comment->like }}</button>
+                <button type="button"><img src="{{ asset('image/unthumb.png') }}" alt="unthumb comment" width="25px">{{ $comment->dislike }}</button>
             </div>
             <div class="comment-content">{{ $comment->content }}</div>
         </div>
