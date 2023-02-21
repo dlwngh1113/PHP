@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('users')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('posts')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('comments')->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -31,7 +31,7 @@ return new class extends Migration
     {
         Schema::table('comment_likes', function (Blueprint $table) {
             $table->dropForeign('comment_likes_user_id_foreign');
-            $table->dropForeign('comment_likes_post_id_foreign');
+            $table->dropForeign('comment_likes_comment_id_foreign');
         });
         Schema::dropIfExists('comment_likes');
     }
