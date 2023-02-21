@@ -46,6 +46,6 @@ Route::prefix('board/{id}')->name('board.')->group(function(){
 });
 
 Route::prefix('comment')->name('comment.')->middleware(['auth', 'verified'])->group(function () {
-    Route::post('/comment_like', [CommentLikeController::class, 'verificate_like'])->name('verificate_like');
-    Route::post('/comment_dislike', [CommentLikeController::class, 'verificate_dislike'])->name('verificate_dislike');
+    Route::get('/comment_like/{comment}', [CommentLikeController::class, 'verificate_like'])->name('verificate_like');
+    Route::get('/comment_dislike/{comment}', [CommentLikeController::class, 'verificate_dislike'])->name('verificate_dislike');
 });

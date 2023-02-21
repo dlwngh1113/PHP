@@ -9,26 +9,27 @@ use Illuminate\Support\Facades\DB;
 
 class CommentLikeController extends Controller
 {
-    public function verificate_like($commentId)
+    function verificate_like($comment)
     {
         $userId = Auth::user()->id;
-        $result = DB::table('comment_likes')->where('comment_id', $commentId)->and('user_id', $userId)->first();
+        $result = DB::table('comment_likes')->where('comment_id', $comment)->where('user_id', $userId)->first();
 
         if ($result)
         {
-            DB::table('comments')->increment('like', 1, ['id' => $commentId]);
-            DB::table('comment_likes')->insert([
-                'user_id' => $userId,
-                'comment_id' => $commentId,
-            ]);
-
-            Session::flush();
+            return redirect()->back()->withErrors('message', 'You cant like twice in same comment');
         }
 
-        return redirect()->back()->withErrors('error', 'You cant like twice in same comment');
+        DB::table('comments')->increment('like', 1, ['id' => $comment]);
+        DB::table('comment_likes')->insert([
+            'user_id' => $userId,
+            'comment_id' => $comment,
+        ]);
+
+        Session::flush();
+        return redirect()->back();
     }
 
-    public function verificate_dislike()
+    function verificate_dislike(Request $request)
     {
         $userId = Auth::user()->id;
         $result = DB::table('comment_likes')->where('comment_id', $commentId)->and('user_id', $userId)->first();

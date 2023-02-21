@@ -18,6 +18,9 @@
 </style>
 
 <div>
+    @if ($message = Session::get('message'))
+        <x-popup type="error" message="{{ $message }}"/>
+    @endif
     <p style="text-align: left"><strong>댓글 목록</strong></p>
     @foreach ($comments as $comment)
         <div>
@@ -25,8 +28,8 @@
                 {{ $comment->name }}
             </div>
             <div class="comment-like">
-                <button type="submit" onclick="{{ route('comment.verificate_like', ['commentId' => $comment->id]) }}"><img src="{{ asset('image/thumb.png') }}" alt="thunb comment" width="25px">{{ $comment->like }}</button>
-                <button type="submit" onclick="{{ route('comment.verificate_dislike', ['commentId' => $comment->id]) }}"><img src="{{ asset('image/unthumb.png') }}" alt="unthumb comment" width="25px">{{ $comment->dislike }}</button>
+                <button type="button" onclick="location.href='{{ route('comment.verificate_like', ['comment' => $comment->id]) }}'"><img src="{{ asset('image/thumb.png') }}" alt="thunb comment" width="25px">{{ $comment->like }}</button>
+                <button type="button" onclick="location.href='{{ route('comment.verificate_dislike', ['comment' => $comment->id]) }}'"><img src="{{ asset('image/unthumb.png') }}" alt="unthumb comment" width="25px">{{ $comment->dislike }}</button>
             </div>
             <div class="comment-content">{{ $comment->content }}</div>
         </div>
