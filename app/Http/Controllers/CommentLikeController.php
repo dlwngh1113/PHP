@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PostLikeController extends Controller
+class CommentLikeController extends Controller
 {
     public function verificate_like()
     {

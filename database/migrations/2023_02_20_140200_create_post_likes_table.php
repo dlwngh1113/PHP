@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post_likes', function (Blueprint $table) {
+        Schema::create('comment_likes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
@@ -29,10 +29,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('post_likes', function (Blueprint $table) {
-            $table->dropForeign('post_likes_user_id_foreign');
-            $table->dropForeign('post_likes_post_id_foreign');
+        Schema::table('comment_likes', function (Blueprint $table) {
+            $table->dropForeign('comment_likes_user_id_foreign');
+            $table->dropForeign('comment_likes_post_id_foreign');
         });
-        Schema::dropIfExists('post_likes');
+        Schema::dropIfExists('comment_likes');
     }
 };
