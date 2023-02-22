@@ -16,7 +16,7 @@ class CommentLikeController extends Controller
 
         if ($result)
         {
-            return redirect()->back()->withErrors('message', 'You cant like twice in same comment');
+            return redirect()->back()->withErrors('message', 'You already liked this comment');
         }
 
         DB::table('comments')->where('id', $commentId)->increment('like');
@@ -35,7 +35,7 @@ class CommentLikeController extends Controller
 
         if ($result)
         {
-            return redirect()->back()->withErrors('message', 'You cant dislike twice in same comment');
+            return redirect()->back()->withErrors('message', 'You already liked this comment');
         }
 
         DB::table('comments')->where('id', $commentId)->increment('dislike');
