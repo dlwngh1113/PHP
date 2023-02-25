@@ -36,7 +36,7 @@
     <form method="POST" action="{{ route('comment.register') }}">
         @csrf
         <input type="text" placeholder="content" name="content">
-        <input type="hidden" name="postId" value="{{ $comment->post_id }}">
+        <input type="hidden" name="postId" value="{{ $post->id }}">
         <input type="submit" value="write">
     </form>
 </div>
