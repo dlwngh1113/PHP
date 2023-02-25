@@ -1,4 +1,22 @@
-<x-layout>
+<style>
+    .tb{
+        min-width: 100%;
+        font-size: 150%;
+    }
+    .tr-left{
+        width: 30%;
+        font-size: inherit;
+        text-align: center;
+        background-color: violet;
+    }
+    .tr-right{
+        width: 70%;
+        font-size: inherit;
+        background-color: yellowgreen;
+    }
+</style>
+
+<x-user.layout>
     <x-slot:title>
         Profile
     </x-slot:title>
@@ -7,46 +25,14 @@
     <x-popup type="info" message="{{ $message }}"/>
 @endif
 
-<div class="container-table">
-    <div class="container-table">
-        <div class="container-leftrow">
-            <p>User Name</p>
-        </div>
-        <div class="container-rightrow">
-            <p>{{ $user->name }}</p>
-        </div>
-    </div>
-
-    <div class="container-table">
-        <div class="container-leftrow">
-            <p>Email</p>
-        </div>
-        <div class="container-rightrow">
-            <p>{{ $user->email }}</p>
-        </div>
-    </div>
-
-    <div class="container-table">
-        <div class="container-leftrow">
-            <p>Reset Password</p>
-        </div>
-        <div class="container-rightrow">
-            <form method="POST" action="{{ route('user.reset_password') }}">
-                @csrf
-                <p>Enter New Password <input type="text" name="password" placeholder="password"></p>
-                @error('password')
-                    <p class="text-danger">{{ $errors->first('password') }}</p>
-                @enderror
-                <p><button type="submit">Reset</button></p>
-            </form>
-        </div>
-    </div>
-
-    <div class="container-table">
-        <form method="POST" action="{{ route('user.delete_user') }}">
-            @csrf
-            <button class="input-control" type="submit" style="color: rgb(255, 0, 0); background-color: #000000d0"><strong>Delete User</strong></button>
-        </form>
-    </div>
-</div>
-</x-layout>
+<table class="tb">
+    <tr>
+        <td class="tr-left">User Name</td>
+        <td class="tr-right">{{ $user->name }}</td>
+    </tr>
+    <tr>
+        <td class="tr-left">User Email</td>
+        <td class="tr-right">{{ $user->email }}</td>
+    </tr>
+</table>
+</x-user.layout>
