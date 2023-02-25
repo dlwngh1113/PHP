@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class popup extends Component
+class Popup extends Component
 {
     /**
      * Create a new component instance.
