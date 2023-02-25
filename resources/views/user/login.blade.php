@@ -1,14 +1,8 @@
-<x-layout>
+<x-user.layout>
     <x-slot:title>
         Login
     </x-slot:title>
-<div style="padding: 5%"></div>
 
-@error('message')
-    <x-popup type="info" message="{{ $message }}"/>
-@enderror
-
-<div class="container-login">
     <form method="POST" action="{{ route('verificate_login') }}">
         @csrf
         <div>
@@ -34,5 +28,5 @@
             <button class="input-control" type="submit">Login</button>
         </div>
     </form>
-</div>
-</x-layout>
+
+</x-user.layout>

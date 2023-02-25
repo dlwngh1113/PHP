@@ -2,15 +2,6 @@
     width:  100%;
     background-color: #c4db66;
 }
-.container-login{
-    float:left;
-    width: 100%;
-    display: grid;
-    place-items: center;
-}
-.input-control{
-    font-size: 140%;
-}
 
 .container-table{
     width: 100%;

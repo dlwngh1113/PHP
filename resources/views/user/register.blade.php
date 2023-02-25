@@ -1,4 +1,4 @@
-<x-layout>
+<x-user.layout>
     <x-slot:title>
         Register
     </x-slot:title>
@@ -9,18 +9,30 @@
 
 <form method="POST" action="{{ route('verificate_register') }}">
     @csrf
-    <input type="text" name="name" placeholder="name">
-    @error('name')
-        <span class="text-danger">{{ $errors->first('name') }}</span>
-    @enderror
-    <input type="text" name="email" placeholder="email">
+    <div>
+        <p class="input-control">Name</p>
+        <input class="input-control" type="text" name="name">
+        @error('name')
+            <span class="text-danger">{{ $errors->first('name') }}</span>
+        @enderror
+    </div>
+    <div>
+        <p class="input-control">Email</p>
+        <input class="input-control" type="text" name="email">
         @error('email')
             <span class="text-danger">{{ $errors->first('email') }}</span>
         @enderror
-    <input type="password" name="password" placeholder="password">
+    </div>
+    <div>
+        <p class="input-control">Password</p>
+        <input class="input-control" type="password" name="password">
         @error('password')
             <span class="text-danger">{{ $errors->first('name') }}</span>
         @enderror
-    <button type="submit">Register</button>
+    </div>
+    <div>
+        <p></p>
+        <button class="input-control" type="submit">Register</button>
+    </div>
 </form>
-</x-layout>
+</x-user.layout>
