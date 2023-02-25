@@ -2,15 +2,6 @@
     width:  100%;
     background-color: #c4db66;
 }
-.container-lb{
-    float: left;
-    width: 70%;
-    display: grid;
-}
-.container-rb{
-    float: left;
-    width: 30%;
-}
 .container-login{
     float:left;
     width: 100%;

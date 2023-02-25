@@ -27,14 +27,6 @@
                 float: left;
                 width: 30%;
             }
-            ul li { float: left; margin-left: 20px; list-style: none;}
-            .navbar-nav{
-                color: #c4db66;
-            }
-            .nav-link{
-                color: black;
-                text-decoration: none;
-            }
         </style>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -49,8 +41,28 @@
             </div>
         </div>
 
-        <div>
+        <div class="container-lb">
+            <x-board/>
             {{ $slot }}
+        </div>
+        <div class="container-rb">
+            <ul class="navbar-nav">
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.profile') }}">Profile</a>
+                    </li>
+                @endguest
+            </ul>
         </div>
     </body>
 </html>

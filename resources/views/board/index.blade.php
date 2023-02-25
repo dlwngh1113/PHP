@@ -2,7 +2,6 @@
     <x-slot:title>
         Board
     </x-slot:title>
-    <x-board/>
     <div class="container-lb">
         <table style="text-align: center">
             <th>title</th>

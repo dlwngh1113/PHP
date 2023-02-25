@@ -3,7 +3,6 @@
         New Post
     </x-slot:title>
 <div class="container-lb">
-    <x-board/>
     <form method="POST" action="{{ route('board.store', ['id' => $id]) }}">
         @csrf
         <p style="min-width: 100%;"><input type="text" name="title" placeholder="title" style="min-width: inherit"></p>

@@ -6,7 +6,7 @@
     text-align: center;
     align-content: center;
     color: black;
-    background-color: aqua;
+    background-color: #99C1F1;
 }
 ul li { float: left; margin-left: 20px; list-style: none;}
 .navbar-nav{
