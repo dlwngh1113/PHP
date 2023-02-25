@@ -5,9 +5,12 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\DB;
 
-class Comment extends Component
+class Post extends Component
 {
+    public $post;
+
     public $comments;
+
     /**
      * Create a new component instance.
      *
@@ -15,9 +18,11 @@ class Comment extends Component
      */
     public function __construct($postId)
     {
+        $this->post = DB::table('posts')->find($postId);
+
         $this->comments = DB::table('comments')
                         ->join('users', 'comments.user_id', '=', 'users.id')
-                        ->where('post_id', $postId)
+                        ->where('post_id', $this->post->id)
                         ->select('users.name', 'comments.*')
                         ->orderBy('comments.created_at')
                         ->get();
@@ -30,6 +35,6 @@ class Comment extends Component
      */
     public function render()
     {
-        return view('components.comment');
+        return view('components.post');
     }
 }
