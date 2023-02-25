@@ -4,16 +4,16 @@
     </x-slot:title>
 <div style="padding: 5%"></div>
 
-@if ($message = Session::get('message'))
+@error('message')
     <x-popup type="info" message="{{ $message }}"/>
-@endif
+@enderror
 
 <div class="container-login">
     <form method="POST" action="{{ route('verificate_login') }}">
         @csrf
         <div>
             <p class="input-control" style="text-align: left">Email</p>
-            <input class="input-control" type="text" name="email">
+            <input class="input-control" type="text" name="email" value="{{ old('email') }}">
             @error('email')
                 <p class="error">{{ $errors->first('email') }}</p>
             @enderror
