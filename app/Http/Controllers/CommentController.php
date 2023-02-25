@@ -7,8 +7,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
-class CommentLikeController extends Controller
+use App\Models\Comment;
+
+class CommentController extends Controller
 {
+    function register(Request $request)
+    {
+        $data = $request->all();
+
+        Comment::create([
+            'content' => $data['content'],
+            'post_id' => $data['postI   d'],
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return redirect()->back();
+    }
+
     function verificate_like($commentId)
     {
         $userId = Auth::user()->id;

@@ -31,4 +31,12 @@
             <div class="comment-content">{{ $comment->content }}</div>
         </div>
     @endforeach
+
+    <p style="text-align: left"><strong>댓글 쓰기</strong></p>
+    <form method="POST" action="{{ route('comment.register') }}">
+        @csrf
+        <input type="text" placeholder="content" name="content">
+        <input type="hidden" name="postId" value="{{ $comment->post_id }}">
+        <input type="submit" value="write">
+    </form>
 </div>

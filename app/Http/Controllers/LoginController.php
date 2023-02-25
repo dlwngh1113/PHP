@@ -58,7 +58,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->remember_me))
         {
-            return redirect()->to('home');
+            return redirect()->route('home');
         }
 
         return redirect()->back()->withErrors('message', 'Login details are not validated')->withInput($request->except('password'));

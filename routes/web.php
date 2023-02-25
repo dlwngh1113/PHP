@@ -6,7 +6,7 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CommentLikeController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,6 +46,7 @@ Route::prefix('board/{id}')->name('board.')->group(function(){
 });
 
 Route::prefix('comment')->name('comment.')->middleware(['auth', 'verified'])->group(function () {
-    Route::get('/comment_like/{commentId}', [CommentLikeController::class, 'verificate_like'])->name('verificate_like');
-    Route::get('/comment_dislike/{commentId}', [CommentLikeController::class, 'verificate_dislike'])->name('verificate_dislike');
+    Route::post('register', [CommentController::class, 'register'])->name('register');
+    Route::get('/add_like/{commentId}', [CommentController::class, 'verificate_like'])->name('verificate_like');
+    Route::get('/add_dislike/{commentId}', [CommentController::class, 'verificate_dislike'])->name('verificate_dislike');
 });
