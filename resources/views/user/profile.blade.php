@@ -5,12 +5,14 @@
     }
     .tr-left{
         width: 30%;
+        min-height: 20%;
         font-size: inherit;
         text-align: center;
         background-color: violet;
     }
     .tr-right{
         width: 70%;
+        min-height: 20%;
         font-size: inherit;
         background-color: yellowgreen;
     }
@@ -31,8 +33,13 @@
         <td class="tr-right">{{ $user->name }}</td>
     </tr>
     <tr>
-        <td class="tr-left">User Email</td>
-        <td class="tr-right">{{ $user->email }}</td>
+        <td class="tr-left">Email</td>
+        <td class="tr-right">
+            <p>{{ $user->email }} {{ $user->email_verified ?? }}</p>
+            <p>{{ $user->email_verified_at }}</p>
+        </td>
+    </tr>
+    <tr>
     </tr>
 </table>
 </x-user.layout>
