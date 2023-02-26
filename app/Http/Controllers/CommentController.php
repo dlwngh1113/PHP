@@ -11,7 +11,7 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
-    function __contstruct()
+    function __construct()
     {
         $this->middleware(['auth', 'verified']);
     }

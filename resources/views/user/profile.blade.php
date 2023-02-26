@@ -37,7 +37,7 @@
         <td class="tr-right">
             <p>
                 {{ $user->email }}
-                @if ($user->email_verified)
+                @if ($user->email_verified_at)
                     <img src="{{ asset('image/verified.png') }}" alt="email verified img" width="20px">
                 @else
                     <img src="{{ asset('image/nonVerified.png') }}" alt="email non verified img" width="20px">

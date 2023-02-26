@@ -39,9 +39,10 @@ class LoginController extends Controller
 
         event(new Registered($user));
 
+        Auth::login($user);
         $request->session()->flash('message', 'please check your email verification');
 
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     function verificate_login(Request $request)

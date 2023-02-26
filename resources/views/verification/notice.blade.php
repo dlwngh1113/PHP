@@ -1,4 +1,3 @@
-@extends('layouts.master')
 <x-layout>
     <x-slot:title>
         Notification
