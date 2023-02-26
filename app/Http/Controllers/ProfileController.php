@@ -10,6 +10,12 @@ use App\Http\Models\User;
 
 class ProfileController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verified')->except('index');
+    }
+
     function index()
     {
         return view('user.profile', ['user' => Auth::user()]);

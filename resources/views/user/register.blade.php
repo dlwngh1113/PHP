@@ -4,7 +4,7 @@
     </x-slot:title>
 
 @if ($message = Session::get('message'))
-    <x-popup type="info" message="{{ $message }}"/>
+    <x-popup type="'info'" message="{{ $message }}"/>
 @endif
 
 <form method="POST" action="{{ route('verificate_register') }}">

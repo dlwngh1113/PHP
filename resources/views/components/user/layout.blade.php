@@ -18,7 +18,7 @@
         <x-header/>
 
         @error('message')
-        <x-popup type="info" message="{{ $message }}"/>
+            <x-popup type="info" message="{{ $message }}"/>
         @enderror
 
         <div class="container-login">

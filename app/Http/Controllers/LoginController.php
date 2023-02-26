@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 use App\Models\User;
-use App\Mail\VerificationEmail;
+use Illuminate\Auth\Events\Registered;
 
 class LoginController extends Controller
 {
@@ -37,10 +35,9 @@ class LoginController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'email_verification_token' => Str::random(32),
         ]);
 
-        Mail::to($user->email)->send(new VerificationEmail($user));
+        event(new Registered($user));
 
         $request->session()->flash('message', 'please check your email verification');
 

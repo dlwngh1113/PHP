@@ -11,6 +11,11 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
+    function __contstruct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
     function register(Request $request)
     {
         $data = $request->all();

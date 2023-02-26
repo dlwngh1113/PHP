@@ -13,7 +13,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::prefix('/')->group(function () {
-    Route::get('verify/{token}', [VerificationController::class, 'verify'])->name('verify');
 
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::get('register', [LoginController::class, 'register'])->name('register');
@@ -22,11 +21,12 @@ Route::prefix('/')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('verification')->name('verification.')->middleware(['auth', 'verified'])->group(function() {
+Route::prefix('verification')->name('verification.')->middleware(['auth'])->group(function() {
+    Route::get('verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verify');
     Route::get('notice', [VerificationController::class, 'notice'])->name('notice');
 });
 
-Route::prefix('user')->name('user.')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('user')->name('user.')->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('profile');
     Route::post('/reset_password', [ProfileController::class, 'reset_password'])->name('reset_password');
     Route::post('/delete_user', [ProfileController::class, 'delete_user'])->name('delete_user');
@@ -45,7 +45,7 @@ Route::prefix('board/{id}')->name('board.')->group(function(){
     });
 });
 
-Route::prefix('comment')->name('comment.')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('comment')->name('comment.')->group(function () {
     Route::post('register', [CommentController::class, 'register'])->name('register');
     Route::get('/add_like/{commentId}', [CommentController::class, 'verificate_like'])->name('verificate_like');
     Route::get('/add_dislike/{commentId}', [CommentController::class, 'verificate_dislike'])->name('verificate_dislike');
