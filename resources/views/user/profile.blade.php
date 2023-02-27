@@ -41,7 +41,7 @@
                     <img src="{{ asset('image/verified.png') }}" alt="email verified img" width="20px">
                 @else
                     <img src="{{ asset('image/nonVerified.png') }}" alt="email non verified img" width="20px">
-                    <input type="submit" value="Send Email">
+                    <button type="button" onclick="location.href='{{ route('verification.resend') }}'">Resend</button>
                 @endif
             </p>
         </td>
