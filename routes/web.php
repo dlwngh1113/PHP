@@ -24,6 +24,7 @@ Route::prefix('/')->group(function () {
 Route::prefix('verification')->name('verification.')->middleware(['auth'])->group(function() {
     Route::get('verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verify');
     Route::get('notice', [VerificationController::class, 'notice'])->name('notice');
+    Route::get('resend', [VerificationController::class, 'resend'])->name('resend');
 });
 
 Route::prefix('user')->name('user.')->group(function () {
