@@ -36,7 +36,7 @@ class CommentController extends Controller
 
         if ($result)
         {
-            return redirect()->back()->withErrors('message', 'You already liked this comment');
+            return redirect()->back()->with('message', 'You already liked this comment');
         }
 
         DB::table('comments')->where('id', $commentId)->increment('like');
