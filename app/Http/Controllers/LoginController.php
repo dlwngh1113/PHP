@@ -59,7 +59,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->back()->withErrors('message', 'Login details are not validated')->withInput($request->except('password'));
+        return redirect()->back()->with('message', 'Login details are not validated')->withInput($request->except('password'));
     }
 
     function logout()
